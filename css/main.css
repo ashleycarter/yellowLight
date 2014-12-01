@@ -164,10 +164,6 @@ html, body, .home {
     width: 100%;
     margin: 0 auto; }
 
-.good-day h3:after {
-  content: "Good Morning!"; }
-.good-day p:after {
-  content: "Grab a cup of coffee and start your day off right!"; }
 .good-day p {
   width: 80%;
   margin: 1.5em auto;

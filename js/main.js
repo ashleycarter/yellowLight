@@ -70,6 +70,33 @@ function startTime() {
 startTime();
 
 // ----------------------------------------
+// Keep track of time
+// ----------------------------------------
+
+refTime = new Date();
+refH = refTime.getHours();
+if (refH > 11){
+	$('.good-day h3').html('Good Afternoon!')
+	$('.good-day p').html('Grab a cup of coffee and start your day off right!')
+} else{
+	$('.good-day h3').html('Good Morning!')
+	$('.good-day p').html('Grab a cup of coffee and start your day off right!')
+}
+
+function setRefTime(){
+refTime = new Date();
+refH = refTime.getHours();
+}
+setInterval(setRefTime, 1000);
+
+function getTime(){
+refTime = new Date();
+refH = refTime.getHours();
+refM = refTime.getMinutes();
+
+}
+
+// ----------------------------------------
 // Toggle Visibility
 // ----------------------------------------
 
