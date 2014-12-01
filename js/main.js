@@ -41,6 +41,11 @@ $(function() {
   svgReplace();
 });
 
+//----------------
+//VARS
+//----------------
+var hourOfBreak,minsOfBreak,secsOfBreak;
+
 // ----------------------------------------
 // Display Time
 // ----------------------------------------
@@ -83,35 +88,53 @@ function setGreeting(){
 	} else if (refH>=12 && refH<18){
 		$('#content').attr('class', 'afternoon')
 		$('.good-day h3').html('Good Afternoon!')
-		$('.good-day p').html('Grab a cup of coffee and start your day off right!')
+		$('.good-day p').html('Grab a cup of coffee and continue your day off right!')
 	}else if (refH>=18){
 		$('#content').attr('class', 'evening')
 		$('.good-day h3').html('Good Evening!')
-		$('.good-day p').html('Grab a cup of coffee and start your day off right!')
+		$('.good-day p').html('Grab a cup of coffee and end your day right!')
 	}
 }
 setGreeting();
-setInterval(setGreeting, 10000);
+var greetInterval = setInterval(setGreeting, 10000);
 
 // ----------------------------------------
 // Toggle Visibility
 // ----------------------------------------
 
-$('#settingsIcon').click(function(){
-$('#settings').fadeToggle(200);
+$('#Icon').click(function(){
+	$('#settings').fadeToggle(200);
+	$('#Icon i').toggleClass('icon-settings icon-close');
 });
-
+//---------------------------------
+//Get and set break time for user
+//---------------------------------
 
 $('#startDay').click(function(){
 	$('.good-day h3, .good-day p, #startDay').css('display', 'none');
 	$('.icon-info').css('display', 'block')
 	var s = new Date();
-	var dayBreak = new Date(s.getFullYear(), s.getMonth(), s.getDay(), (s.getHours()+2), s.getMinutes(), s.getSeconds());
-	console.log(s.getHours()+":"+s.getMinutes());
-	console.log(dayBreak.getHours()+":"+dayBreak.getMinutes());
-	$('#info p').html("You should take a break in two hours at "+dayBreak.getHours()+":"+dayBreak.getMinutes())
+	var dayBreak = new Date(s.getFullYear(), s.getMonth(), s.getDay(), s.getHours(), s.getMinutes(), (s.getSeconds()+5));
+	hourOfBreak = dayBreak.getHours();
+	minsOfBreak = checkTime(dayBreak.getMinutes());
+	secsOfBreak = dayBreak.getSeconds();
+	$('#info p').html("You should take a break in two hours at "+hourOfBreak+":"+minsOfBreak).fadeIn(1000).delay(5000).fadeOut(1000);
 });
 
+$('.icon-info').click(function(){
+	$('#info p').fadeToggle();
+});
+
+
+
+function breakTime(){
+	d = new Date();
+	if(d.getSeconds() == secsOfBreak){
+		$('#content').attr('class', 'break')
+		clearInterval(greetInterval);
+	}
+}
+//setInterval(breakTime, 1000)
 
 
 
