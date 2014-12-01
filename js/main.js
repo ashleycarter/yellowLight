@@ -73,40 +73,44 @@ startTime();
 // Keep track of time
 // ----------------------------------------
 
-refTime = new Date();
-refH = refTime.getHours();
-if (refH > 11){
-	$('.good-day h3').html('Good Afternoon!')
-	$('.good-day p').html('Grab a cup of coffee and start your day off right!')
-} else{
-	$('.good-day h3').html('Good Morning!')
-	$('.good-day p').html('Grab a cup of coffee and start your day off right!')
+function setGreeting(){
+	refTime = new Date();
+	refH = refTime.getHours();
+	if (refH>=5 && refH<12){
+		$('#content').attr('class', 'morning')
+		$('.good-day h3').html('Good Morning!')
+		$('.good-day p').html('Grab a cup of coffee and start your day off right!')
+	} else if (refH>=12 && refH<18){
+		$('#content').attr('class', 'afternoon')
+		$('.good-day h3').html('Good Afternoon!')
+		$('.good-day p').html('Grab a cup of coffee and start your day off right!')
+	}else if (refH>=18){
+		$('#content').attr('class', 'evening')
+		$('.good-day h3').html('Good Evening!')
+		$('.good-day p').html('Grab a cup of coffee and start your day off right!')
+	}
 }
-
-function setRefTime(){
-refTime = new Date();
-refH = refTime.getHours();
-}
-setInterval(setRefTime, 1000);
-
-function getTime(){
-refTime = new Date();
-refH = refTime.getHours();
-refM = refTime.getMinutes();
-
-}
+setGreeting();
+setInterval(setGreeting, 10000);
 
 // ----------------------------------------
 // Toggle Visibility
 // ----------------------------------------
 
-function toggle_visibility(id) {
-   var e = document.getElementById(id);
-   if(e.style.display == 'block')
-      e.style.display = 'none';
-   else
-      e.style.display = 'block';
-}
+$('#settingsIcon').click(function(){
+$('#settings').fadeToggle(200);
+});
+
+
+$('#startDay').click(function(){
+	$('.good-day h3, .good-day p, #startDay').css('display', 'none');
+	$('.icon-info').css('display', 'block')
+	var s = new Date();
+	var dayBreak = new Date(s.getFullYear(), s.getMonth(), s.getDay(), (s.getHours()+2), s.getMinutes(), s.getSeconds());
+	console.log(s.getHours()+":"+s.getMinutes());
+	console.log(dayBreak.getHours()+":"+dayBreak.getMinutes());
+	$('#info p').html("You should take a break in two hours at "+dayBreak.getHours()+":"+dayBreak.getMinutes())
+});
 
 
 

@@ -17,9 +17,9 @@
 
 <body>
 	<!-- Begin Content -->
-	<section class="morning">
+	<section id="content" class="morning">
 		<div class="icon-bar">
-			<a href="#" onclick="toggle_visibility('settings');"><i class="icon-settings"></i></a>
+			<a href="#" id="settingsIcon"><i class="icon-settings"></i></a>
 			<a href="#home"><i class="icon-close"></i></a>
 		</div>
 
@@ -40,7 +40,11 @@
 					<h1 class="h2" id="time"></h1>
 					<h3></h3>
 					<p></p>
-					<a href="#" class="button">Start My Day</a>
+					<a href="#" id="startDay" class="button">Start My Day</a>
+				</div>
+				<div id="info">
+					<a href=""><i class="icon-info"></i></a>
+					<p></p>
 				</div>
 			</div>
 		</section>
