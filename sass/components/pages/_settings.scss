@@ -20,19 +20,7 @@
 		&:nth-child(5) { background-color: lighten($yellow, 15%); }
 		&:nth-child(6) { background-color: lighten($yellow, 20%); }
 		p {
-			color: $transparent-dark-blue;
+			color: darken($transparent-dark-blue, 10%);
 		}
 	}
-}
-
-.fill-height {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  > a, > div {
-    flex: 1;   
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
 }

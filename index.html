@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Title</title>
+	<title>Yellow Light</title>
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="css/main.css">
@@ -17,26 +17,33 @@
 
 <body>
 	<!-- Begin Content -->
-	<section class="break" id="settings">
-		<section class="fill-height">
-			<div class="app-header"><h3>Settings<h3></div>
-			<a href="#"><div><p class="h5">Set Workday<p></div></a>
-			<a href="#"><div><p class="h5">Set Lunch Time<p></div></a>
-			<a href="#"><div><p class="h5">Set Do Not Disturb Time<p></div></a>
-			<a href="#"><div><p class="h5">Sounds: On<p></div></a>
-			<a href="#"><div><p class="h5">About Yellow Light<p></div></a>
-		</section>
-	</section>
-
-	<section class="home morning">
-		<a href="#" onclick="toggle_visibility('settings');"><i class="icon-settings"></i></a>
-		<a href="#home"><i class="icon-close"></i></a>
-		<h1 class="h1" id="time"></h1>
-		
-		<div class="good-day">
-			<h3></h3>
-			<p></p>
+	<section class="morning">
+		<div class="icon-bar">
+			<a href="#" onclick="toggle_visibility('settings');"><i class="icon-settings"></i></a>
+			<a href="#home"><i class="icon-close"></i></a>
 		</div>
+
+		<section class="break" id="settings">
+			<section class="fill-height">
+				<div class="app-header"><h3>Settings<h3></div>
+				<a href="#"><div><p class="h5">Set Workday<p></div></a>
+				<a href="#"><div><p class="h5">Set Lunch Time<p></div></a>
+				<a href="#"><div><p class="h5">Set Do Not Disturb Time<p></div></a>
+				<a href="#"><div><p class="h5">Sounds: On<p></div></a>
+				<a href="#"><div><p class="h5">About Yellow Light<p></div></a>
+			</section>
+		</section>
+
+		<section class="home">		
+			<div class="fill-height">
+				<div class="good-day">
+					<h1 class="h2" id="time"></h1>
+					<h3></h3>
+					<p></p>
+					<a href="#" class="button">Start My Day</a>
+				</div>
+			</div>
+		</section>
 	</section>
 	<!-- End Content -->
 

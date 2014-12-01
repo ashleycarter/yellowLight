@@ -1,3 +1,15 @@
 // =========================================
 // Buttons
 // =========================================
+.button {
+	width: 80%;
+	background-color: rgba(248,248,248,0.5);
+	border: none;
+	margin: 0 auto;
+	padding: 2em 0;
+	color: $transparent-dark-blue;
+	font-weight: $font-weight--regular;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-decoration: none;
+}
