@@ -8,7 +8,7 @@
 	width: 100%;
 	height: 100%;
 	.app-header {
-		@include break-color;
+		background-color: darken($yellow, 20%);
 		text-align: center;
 	}
 	a {

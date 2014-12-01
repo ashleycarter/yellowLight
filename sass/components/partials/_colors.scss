@@ -16,33 +16,41 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @mixin morning-color {
-	background: -webkit-linear-gradient(top, rgba(215, 238, 253, 0.98) 0%, rgba(184, 197, 251, 0.98) 91%, rgba(184, 193, 251, 0.98) 100%);
-	background: -o-linear-gradient(top, rgba(215, 238, 253, 0.98) 0%, rgba(184, 197, 251, 0.98) 91%, rgba(184, 193, 251, 0.98) 100%);
-	background: -ms-linear-gradient(top, rgba(215, 238, 253, 0.98) 0%, rgba(184, 197, 251, 0.98) 91%, rgba(184, 193, 251, 0.98) 100%);
-	background: -moz-linear-gradient(top, rgba(215, 238, 253, 0.98) 0%, rgba(184, 197, 251, 0.98) 91%, rgba(184, 193, 251, 0.98) 100%);
-	background: linear-gradient(to bottom, rgba(215, 238, 253, 0.98) 0%, rgba(184, 197, 251, 0.98) 91%, rgba(184, 193, 251, 0.98) 100%);
+	background: url(/img/morning.svg)no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
 
 @mixin afternoon-color {
-	background: -webkit-linear-gradient(281deg, rgb(170, 223, 231) 0%, rgb(118, 175, 207) 60%, rgb(119, 163, 212) 100%);
-	background: -o-linear-gradient(281deg, rgb(170, 223, 231) 0%, rgb(118, 175, 207) 60%, rgb(119, 163, 212) 100%);
-	background: -ms-linear-gradient(281deg, rgb(170, 223, 231) 0%, rgb(118, 175, 207) 60%, rgb(119, 163, 212) 100%);
-	background: -moz-linear-gradient(281deg, rgb(170, 223, 231) 0%, rgb(118, 175, 207) 60%, rgb(119, 163, 212) 100%);
-	background: linear-gradient(169deg, rgb(170, 223, 231) 0%, rgb(118, 175, 207) 60%, rgb(119, 163, 212) 100%);
+	background: url(/img/afternoon.svg)no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
 
 @mixin evening-color {
-	background: -webkit-linear-gradient(top, rgb(57, 115, 177) 0%, rgb(71, 47, 119) 99%, rgb(70, 45, 118) 100%);
-	background: -o-linear-gradient(top, rgb(57, 115, 177) 0%, rgb(71, 47, 119) 99%, rgb(70, 45, 118) 100%);
-	background: -ms-linear-gradient(top, rgb(57, 115, 177) 0%, rgb(71, 47, 119) 99%, rgb(70, 45, 118) 100%);
-	background: -moz-linear-gradient(top, rgb(57, 115, 177) 0%, rgb(71, 47, 119) 99%, rgb(70, 45, 118) 100%);
-	background: linear-gradient(to bottom, rgb(57, 115, 177) 0%, rgb(71, 47, 119) 99%, rgb(70, 45, 118) 100%);
+	background: url(/img/evening.svg)no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
 
 @mixin break-color {
-	background: -webkit-linear-gradient(283deg, rgb(253, 222, 135) 0%, rgb(252, 233, 157) 86%, rgb(254, 241, 179) 100%);
-	background: -o-linear-gradient(283deg, rgb(253, 222, 135) 0%, rgb(252, 233, 157) 86%, rgb(254, 241, 179) 100%);
-	background: -ms-linear-gradient(283deg, rgb(253, 222, 135) 0%, rgb(252, 233, 157) 86%, rgb(254, 241, 179) 100%);
-	background: -moz-linear-gradient(283deg, rgb(253, 222, 135) 0%, rgb(252, 233, 157) 86%, rgb(254, 241, 179) 100%);
-	background: linear-gradient(167deg, rgb(253, 222, 135) 0%, rgb(252, 233, 157) 86%, rgb(254, 241, 179) 100%);
+	background: url(/img/break.svg)no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+@mixin endBreak-color {
+	background: url(/img/endBreak.svg)no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
