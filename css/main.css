@@ -85,7 +85,12 @@ i {
   float: left; }
 
 .icon-close {
-  float: right; }
+  float: right;
+}
+
+.icon-info{
+  display: none;
+}
 
 .icon-settings, .icon-close {
   color: white;
