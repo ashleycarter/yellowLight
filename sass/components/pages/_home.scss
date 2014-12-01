@@ -1,0 +1,40 @@
+// =========================================
+// Home
+// =========================================
+html, body, .home {
+	height: 100%;
+}
+
+.home {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1.5em;
+	color: white;
+}
+
+#time {
+	margin-top: 1em;
+	margin-bottom: 0.35em;
+}
+
+.morning { @include morning-color; }
+.afternoon { @include afternoon-color; }
+.evening { @include evening-color; }
+.break { @include break-color; }
+
+.good-day {
+	h3:after {
+		content: "Good Morning!";
+	}
+	p:after {
+		content: "Grab a cup of coffee and start your day off right!"
+	}
+	p {
+		margin-top: 1.5em;
+		font-size: 1.15em;
+		line-height: 1.5em;
+		padding: 0 2em;
+	}
+}

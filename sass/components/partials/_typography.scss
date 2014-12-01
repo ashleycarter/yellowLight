@@ -1,0 +1,40 @@
+// =========================================
+// Typography
+// =========================================
+
+// Font Stacks
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+$base--font-family       : 'Proxima-Nova', 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$secondary--font-family  : 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+
+// Font Weights
+$font-weight--light      : 100;
+$font-weight--regular    : 300;
+$font-weight--bold       : 400;
+
+// Sizing
+$base--font-size            : ms(0);
+$base--line-height          : $base--font-size * $golden;
+
+// -----------------
+// Base Text Styles
+// -----------------
+
+// Body Text
+body { 
+	font-size: $base--font-size; 
+	font-family: $base--font-family ;
+	font-weight: $font-weight--light;
+}
+
+// Headers
+h1, h2, h3, h4, h5, h6 {
+	font-weight: $font-weight--light;
+}
+
+h1, .h1 { font-size: ms(3.5); }
+h2, .h2 { font-size: ms(3); }
+h3, .h3 { font-size: ms(2); }
+h4, .h4 { font-size: ms(1.5); }
+h5, .h5 { font-size: ms(0.75); }

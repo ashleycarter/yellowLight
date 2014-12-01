@@ -1,0 +1,26 @@
+// =========================================
+// Layout
+// =========================================
+
+// Devices Sizes
+// $small           : 25em;   // 400px
+// $medium          : 40em;   // 640px
+// $large           : 64em;   // 1024px
+// $x-large         : 80em;   // 1280px
+
+// Susy setup
+$susy: (
+	columns: 12,
+	container: 25em,
+	gutters: 1/4,
+	gutter-position: inside
+);
+
+$small: 25em;
+$medium: 40em;
+$large: 64em;
+$x-large: 80em;
+
+@include border-box-sizing;
+
+
