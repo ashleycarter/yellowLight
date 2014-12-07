@@ -9,14 +9,21 @@
 	height: 100%;
 	a {
 		text-decoration: none;
-		padding-left: 2.5em;
 		&:nth-child(2) { background-color: $yellow; }
 		&:nth-child(3) { background-color: lighten($yellow, 5%); }
 		&:nth-child(4) { background-color: lighten($yellow, 10%); }
 		&:nth-child(5) { background-color: lighten($yellow, 15%); }
 		&:nth-child(6) { background-color: lighten($yellow, 20%); }
+		div {
+			width: 85%;
+			margin-left: auto;
+			margin-right: auto;
+		}
 		p {
 			color: darken($transparent-dark-blue, 10%);
+		}
+		i {
+			font-size: 0.75em;
 		}
 	}
 }

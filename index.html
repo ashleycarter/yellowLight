@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<!-- Scripts -->
 	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	<script src="//use.typekit.net/vsd2rym.js"></script>
 	<script>try{Typekit.load();}catch(e){}</script>
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -28,11 +29,24 @@
 		<section class="break" id="settings">
 			<section class="fill-height">
 				<div class="app-header"><h3>Settings<h3></div>
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+				<a href="#work-day"><div><p class="h5">Set Workday<i class="icon-arrow-right"></i><p></div></a>
+				<a href="#lunch-time"><div><p class="h5">Set Lunch Time<i class="icon-arrow-right"></i><p></div></a>
+				<a href="#"><div><p class="h5">Sounds: <span id="sound-settings"></span><i class="icon-arrow-right"></i><p></div></a>
+				<a href="#about"><div><p class="h5">About Yellow Light<i class="icon-arrow-right"></i><p></div></a>
+=======
+>>>>>>> Stashed changes
 				<a href="#work-day" id="work"><div><p class="h5">Set Workday<p></div></a>
 				<a href="#lunch-time"><div><p class="h5">Set Lunch Time<p></div></a>
 				<a href="#disturb-time"><div><p class="h5">Set Do Not Disturb Time<p></div></a>
 				<a href="#"><div><p class="h5">Sounds: On<p></div></a>
 				<a href="#about" id="about-link"><div><p class="h5">About Yellow Light<p></div></a>
+<<<<<<< Updated upstream
+=======
+>>>>>>> FETCH_HEAD
+>>>>>>> Stashed changes
 			</section>
 		</section>
 		<!-- End Settings Section -->
@@ -46,7 +60,7 @@
 					<p></p>
 					<a href="#" id="startDay" class="button">Start My Day</a>
 				</div>
-<!-- 				<div id="info">
+				<!--<div id="info">
 					<a href="#"><i class="icon-info"></i></a>
 					<p></p>
 				</div> -->
@@ -58,7 +72,12 @@
 	<!-- Work Day Section -->
 	<section class="break time" id="work-day">
 		<div class="fill-height">
-			<div class="app-header"><h3>Set Work Day<h3></div>
+			<div class="app-header">
+				<span>
+					<a href="#settings"><i class="icon-arrow-left"></i></a>
+					<h3>Set Work Day<h3>
+				</span>
+			</div>
 			<div class="time-selection">
 				<p class="h2"><i class="icon-arrow-left"></i><span id="start"></span><i class="icon-arrow-right"></i></p>
 				<p class="h5">to</p>
@@ -69,6 +88,26 @@
 		</div>
 	</section>
 	<!-- End Work Day Section -->
+
+	<!-- Lunch Section -->
+	<section class="break time" id="lunch">
+		<div class="fill-height">
+			<div class="app-header">
+				<span>
+					<a href="#settings"><i class="icon-arrow-left"></i></a>
+					<h3>Set Lunch Time<h3>
+				</span>
+			</div>
+			<div class="time-selection">
+				<p class="h2"><i class="icon-arrow-left"></i><span id="start"></span><i class="icon-arrow-right"></i></p>
+				<p class="h5">to</p>
+				<p class="h2"><i class="icon-arrow-left"></i><span id="end"></span><i class="icon-arrow-right"></i></p>
+				<div id="slider-range"></div>
+				<button id="set">Set</button>
+			</div>
+		</div>
+	</section>
+	<!-- End Lunch Section -->
 
 	<!-- About Section -->
 	<section class="break time" id="about">

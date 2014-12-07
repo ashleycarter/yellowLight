@@ -152,7 +152,7 @@ html, body, .home {
 .icon-bar {
   width: 100%;
   position: absolute;
-  padding: 1em;
+  padding: 1.5em;
   z-index: 999; }
 
 .home {
@@ -193,8 +193,7 @@ html, body, .home {
   width: 100%;
   height: 100%; }
   #settings a {
-    text-decoration: none;
-    padding-left: 2.5em; }
+    text-decoration: none; }
     #settings a:nth-child(2) {
       background-color: #FFE06F; }
     #settings a:nth-child(3) {
@@ -205,8 +204,14 @@ html, body, .home {
       background-color: #fff0bc; }
     #settings a:nth-child(6) {
       background-color: #fff6d5; }
+    #settings a div {
+      width: 85%;
+      margin-left: auto;
+      margin-right: auto; }
     #settings a p {
       color: rgba(11, 28, 40, 0.6); }
+    #settings a i {
+      font-size: 0.75em; }
 
 .time {
   width: 100%;
@@ -235,6 +240,28 @@ html, body, .home {
   margin-right: auto; }
 .time-selection .h2 {
   font-size: 3.5em; }
+
+#lunch {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+  #lunch .app-header {
+    background-color: #ffca09;
+    text-align: center; }
+  #lunch a {
+    text-decoration: none;
+    padding-left: 2.5em; }
+    #lunch a p {
+      color: rgba(11, 28, 40, 0.6); }
+  #lunch div:nth-child(2) {
+    flex: 2;
+    justify-content: flex-start;
+    margin-top: 4em; }
+    #lunch div:nth-child(2) p:nth-child(2) {
+      color: rgba(11, 28, 40, 0.6);
+      margin: 1em 0; }
 
 #work-day {
   display: none;
