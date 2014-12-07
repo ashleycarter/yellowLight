@@ -1,4 +1,5 @@
-var beginday,endday;
+var beginday = moment().hour(9).minute(0).second(0);
+var endday = moment().hour(17).minute(0).second(0);
   $(function() {
     $( "#slider-range" ).slider({
             range: true,
@@ -60,8 +61,8 @@ var beginday,endday;
                 $('#start').text(hours1+':'+minutes1);
                 $( "#end" ).text(hours2+':'+minutes2);
 
-                beginday = moment().hour(baseh1).minute(basem1);
-                endday = moment().hour(baseh2).minute(basem2);
+                beginday = moment().hour(baseh1).minute(basem1).second(0);
+                endday = moment().hour(baseh2).minute(basem2).second(0);
             }
     });
     $( "#start" ).text('9:00 AM');
@@ -72,6 +73,7 @@ var beginday,endday;
         $.removeCookie('end', endday);
         $.cookie('start', beginday);
         $.cookie('end', endday);
+        $('#work-day').css('display', 'none');
         console.log($.cookie());
 
     })

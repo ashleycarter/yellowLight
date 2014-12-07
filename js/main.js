@@ -109,8 +109,14 @@ $('#icon').click(function(){
 
 $('#work').click(function(){
 	$('#work-day').fadeToggle(200);
+	$('#settings').fadeToggle(200);
 	$('#work-day').css('zIndex', '20');
 	$('#work-day').css('position', 'absolute');
+})
+$('#about-link').click(function(){
+	$('#about').fadeToggle(200);
+	$('#about').css('zIndex', '20');
+	$('#about').css('position', 'absolute');
 })
 //---------------------------------
 //Get and set break time for user
