@@ -103,6 +103,7 @@ var greetInterval = setInterval(setGreeting, 10000);
 // ----------------------------------------
 
 $('#icon').click(function(){
+	$('.home').fadeToggle();
 	$('#settings').fadeToggle(200);
 	$('#icon i').toggleClass('icon-settings icon-close');
 });
@@ -110,13 +111,17 @@ $('#icon').click(function(){
 $('#work').click(function(){
 	$('#work-day').fadeToggle(200);
 	$('#settings').fadeToggle(200);
-	$('#work-day').css('zIndex', '20');
 	$('#work-day').css('position', 'absolute');
 })
 $('#about-link').click(function(){
 	$('#about').fadeToggle(200);
-	$('#about').css('zIndex', '20');
 	$('#about').css('position', 'absolute');
+})
+$('#back').click(function(){
+	console.log('click');
+	$('#settings').fadeToggle(200);
+	$('#work-day').hide(200);
+	$('#about').hide(200);
 })
 //---------------------------------
 //Get and set break time for user
