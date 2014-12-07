@@ -102,14 +102,16 @@ var greetInterval = setInterval(setGreeting, 10000);
 // Toggle Visibility Of Different Templates
 // ----------------------------------------
 
-$('#Icon').click(function(){
+$('#icon').click(function(){
 	$('#settings').fadeToggle(200);
-	$('#Icon i').toggleClass('icon-settings icon-close');
+	$('#icon i').toggleClass('icon-settings icon-close');
 });
 
-// $('#setwork').click(function(){
-// 	$('#workslider').append("<input type='range' min='0' max='12' step='1' />");
-// })
+$('#work').click(function(){
+	$('#work-day').fadeToggle(200);
+	$('#work-day').css('zIndex', '20');
+	$('#work-day').css('position', 'absolute');
+})
 //---------------------------------
 //Get and set break time for user
 //---------------------------------

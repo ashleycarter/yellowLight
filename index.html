@@ -7,6 +7,7 @@
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="css/main.css">
 	<link href="https://fontastic.s3.amazonaws.com/qMBo2oKzAJVqimf7AcNbiC/icons.css" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<!-- Scripts -->
 	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	<script src="//use.typekit.net/vsd2rym.js"></script>
@@ -27,7 +28,7 @@
 		<section class="break" id="settings">
 			<section class="fill-height">
 				<div class="app-header"><h3>Settings<h3></div>
-				<a href="#work-day"><div><p class="h5">Set Workday<p></div></a>
+				<a href="#work-day" id="work"><div><p class="h5">Set Workday<p></div></a>
 				<a href="#lunch-time"><div><p class="h5">Set Lunch Time<p></div></a>
 				<a href="#disturb-time"><div><p class="h5">Set Do Not Disturb Time<p></div></a>
 				<a href="#"><div><p class="h5">Sounds: On<p></div></a>
@@ -59,9 +60,11 @@
 		<div class="fill-height">
 			<div class="app-header"><h3>Set Work Day<h3></div>
 			<div class="time-selection">
-				<p class="h2"><i class="icon-arrow-left"></i>8:00 AM<i class="icon-arrow-right"></i></p>
+				<p class="h2"><i class="icon-arrow-left"></i><span id="start"></span><i class="icon-arrow-right"></i></p>
 				<p class="h5">to</p>
-				<p class="h2"><i class="icon-arrow-left"></i>5:00 PM</p><i class="icon-arrow-right"></i>
+				<p class="h2"><i class="icon-arrow-left"></i><span id="end"></span><i class="icon-arrow-right"></i></p>
+				<div id="slider-range"></div>
+				<button id="set">Set</button>
 			</div>
 		</div>
 	</section>
@@ -72,7 +75,13 @@
 	<!-- Scripts -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	<script src="js/moment.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/slider.js"></script>
+
+
 	<!-- End Scripts -->
 </body>
 </html>

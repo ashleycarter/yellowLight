@@ -1,22 +1,18 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>jQuery UI Slider - Range slider</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script>
-  var beginday,endday;
+var beginday,endday;
   $(function() {
     $( "#slider-range" ).slider({
             range: true,
             min: 0,
             max: 1440,
             step: 15,
-            values: [ 600, 720 ], //or whatever default time you want
+            values: [ 540, 1020 ], //or whatever default time you want
             slide: function(e, ui) {
+                baseh1 = Math.floor(ui.values[0] / 60);
+                basem1 = ui.values[0] - (baseh1 * 60);
+                baseh2 = Math.floor(ui.values[1] / 60);
+                basem2 = ui.values[1] - (baseh2 * 60);
+
+
                 var hours1 = Math.floor(ui.values[0] / 60);
                 var minutes1 = ui.values[0] - (hours1 * 60);
                 if(hours1.length == 1) hours1 = '0' + hours1;
@@ -61,29 +57,24 @@
                     minutes2 = minutes2 + " AM";
                 }
 
-                $('#amount').val(hours1+':'+minutes1+" - "+hours2+':'+minutes2);
-                console.log(hours1+":"+minutes1+" - "+hours1+":"+minutes2)
-                s = new Date();
-                beginday = new Date(s.getFullYear(), s.getMonth(), s.getDay(), parseInt(hours1), parseInt(minutes1));
-                endday = new Date(s.getFullYear(), s.getMonth(), s.getDay(), parseInt(hours2), parseInt(minutes2));
-                $('#time').html("Day starts at "+beginday.toString()+"<br /> Day ends at "+endday.toString())
+                $('#start').text(hours1+':'+minutes1);
+                $( "#end" ).text(hours2+':'+minutes2);
+
+                beginday = moment().hour(baseh1).minute(basem1);
+                endday = moment().hour(baseh2).minute(basem2);
             }
     });
-    $( "#amount" ).val("Use slider to input time.");
+    $( "#start" ).text('9:00 AM');
+    $( "#end" ).text('5:00 PM');
+
+    $('#set').click(function() {
+        $.removeCookie('start', beginday);
+        $.removeCookie('end', endday);
+        $.cookie('start', beginday);
+        $.cookie('end', endday);
+        console.log($.cookie());
+
+    })
+
     
   });
-  </script>
-</head>
-<body>
- 
-<p>
-  <label for="amount">Price range:</label>
-  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-</p>
- 
-<div id="slider-range"></div>
-<div id="time"></div>
- 
- 
-</body>
-</html>
