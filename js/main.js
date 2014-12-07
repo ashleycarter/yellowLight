@@ -89,7 +89,7 @@ function setGreeting(){
 		$('#content').attr('class', 'afternoon')
 		$('.good-day h3').html('Good Afternoon!')
 		$('.good-day p').html('Grab a cup of coffee and continue your day off right!')
-	}else if (refH>=18){
+	}else if (refH>=18 && refH<5){
 		$('#content').attr('class', 'evening')
 		$('.good-day h3').html('Good Evening!')
 		$('.good-day p').html('Grab a cup of coffee and end your day right!')
