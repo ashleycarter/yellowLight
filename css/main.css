@@ -85,14 +85,22 @@ i {
   float: left; }
 
 .icon-close {
-  float: left; }
-
-.icon-info{
-  display:none;}
+  float: right; }
 
 .icon-settings, .icon-close {
   color: white;
   position: relative; }
+
+.time-selection i {
+  color: white;
+  font-size: 0.35em;
+  margin-top: 1em; }
+
+.icon-arrow-left {
+  float: left; }
+
+.icon-arrow-right {
+  float: right; }
 
 .button {
   width: 80%;
@@ -110,7 +118,7 @@ html, body, .home {
   height: 100%; }
 
 .morning {
-  background: url(../img/Morning.svg) no-repeat center center fixed;
+  background: url(/img/morning.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -118,7 +126,7 @@ html, body, .home {
   height: 100%; }
 
 .afternoon {
-  background: url(../img/Afternoon.svg) no-repeat center center fixed;
+  background: url(/img/afternoon.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -126,7 +134,7 @@ html, body, .home {
   height: 100%; }
 
 .evening {
-  background: url(../img/Evening.svg) no-repeat center center fixed;
+  background: url(/img/evening.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -134,7 +142,7 @@ html, body, .home {
   height: 100%; }
 
 .break {
-  background: url(../img/Break.svg) no-repeat center center fixed;
+  background: url(/img/break.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -196,3 +204,53 @@ html, body, .home {
       background-color: #fff6d5; }
     #settings a p {
       color: rgba(11, 28, 40, 0.6); }
+
+.time {
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+  .time .app-header {
+    background-color: #ffca09;
+    text-align: center; }
+  .time a {
+    text-decoration: none;
+    padding-left: 2.5em; }
+    .time a p {
+      color: rgba(11, 28, 40, 0.6); }
+  .time div:nth-child(2) {
+    flex: 2;
+    justify-content: flex-start;
+    margin-top: 4em; }
+  .time .h5 {
+    color: rgba(11, 28, 40, 0.6);
+    margin-top: 1em;
+    margin-bottom: 1em; }
+
+.time-selection p {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto; }
+.time-selection .h2 {
+  font-size: 3.5em; }
+
+#work-day {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+  #work-day .app-header {
+    background-color: #ffca09;
+    text-align: center; }
+  #work-day a {
+    text-decoration: none;
+    padding-left: 2.5em; }
+    #work-day a p {
+      color: rgba(11, 28, 40, 0.6); }
+  #work-day div:nth-child(2) {
+    flex: 2;
+    justify-content: flex-start;
+    margin-top: 4em; }
+    #work-day div:nth-child(2) p:nth-child(2) {
+      color: rgba(11, 28, 40, 0.6);
+      margin: 1em 0; }

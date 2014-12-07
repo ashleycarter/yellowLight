@@ -16,24 +16,27 @@
 </head>
 
 <body>
-	<!-- Begin Content -->
+	<!-- Begin App Content -->
 	<section id="content">
 		<div class="icon-bar">
-			<a href="#" id="Icon"><i class="icon-settings"></i></a>
+			<a href="#" id="icon"><i class="icon-settings"></i></a>
 			<!-- <a href="#home"><i class="icon-close"></i></a> -->
 		</div>
 
+		<!-- Settings Section -->
 		<section class="break" id="settings">
 			<section class="fill-height">
 				<div class="app-header"><h3>Settings<h3></div>
-				<a href="#"><div><p class="h5">Set Workday<p></div></a>
-				<a href="#"><div><p class="h5">Set Lunch Time<p></div></a>
-				<a href="#"><div><p class="h5">Set Do Not Disturb Time<p></div></a>
+				<a href="#work-day"><div><p class="h5">Set Workday<p></div></a>
+				<a href="#lunch-time"><div><p class="h5">Set Lunch Time<p></div></a>
+				<a href="#disturb-time"><div><p class="h5">Set Do Not Disturb Time<p></div></a>
 				<a href="#"><div><p class="h5">Sounds: On<p></div></a>
 				<a href="#"><div><p class="h5">About Yellow Light<p></div></a>
 			</section>
 		</section>
+		<!-- End Settings Section -->
 
+		<!-- Main Screen Section -->
 		<section class="home">		
 			<div class="fill-height">
 				<div class="good-day">
@@ -42,14 +45,29 @@
 					<p></p>
 					<a href="#" id="startDay" class="button">Start My Day</a>
 				</div>
-				<div id="info">
+<!-- 				<div id="info">
 					<a href="#"><i class="icon-info"></i></a>
 					<p></p>
-				</div>
+				</div> -->
 			</div>
 		</section>
 	</section>
-	<!-- End Content -->
+	<!-- End Main Screen Section -->
+
+	<!-- Work Day Section -->
+	<section class="break time" id="work-day">
+		<div class="fill-height">
+			<div class="app-header"><h3>Set Work Day<h3></div>
+			<div class="time-selection">
+				<p class="h2"><i class="icon-arrow-left"></i>8:00 AM<i class="icon-arrow-right"></i></p>
+				<p class="h5">to</p>
+				<p class="h2"><i class="icon-arrow-left"></i>5:00 PM</p><i class="icon-arrow-right"></i>
+			</div>
+		</div>
+	</section>
+	<!-- End Work Day Section -->
+
+	<!-- End App Content -->
 
 	<!-- Scripts -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
