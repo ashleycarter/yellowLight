@@ -102,9 +102,9 @@ var greetInterval = setInterval(setGreeting, 10000);
 // Toggle Visibility Of Different Templates
 // ----------------------------------------
 
-$('#Icon').click(function(){
+$('#icon').click(function(){
 	$('#settings').fadeToggle(200);
-	$('#Icon i').toggleClass('icon-settings icon-close');
+	$('#icon i').toggleClass('icon-settings icon-close');
 });
 
 // $('#setwork').click(function(){
