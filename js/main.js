@@ -103,7 +103,7 @@ var greetInterval = setInterval(setGreeting, 10000);
 // ----------------------------------------
 
 $('#Icon').click(function(){
-	$('#settings').show(200);
+	$('#settings').fadeToggle(200);
 	$('#Icon i').toggleClass('icon-settings icon-close');
 });
 
