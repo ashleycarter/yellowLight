@@ -99,13 +99,17 @@ setGreeting();
 var greetInterval = setInterval(setGreeting, 10000);
 
 // ----------------------------------------
-// Toggle Visibility
+// Toggle Visibility Of Different Templates
 // ----------------------------------------
 
 $('#Icon').click(function(){
-	$('#settings').fadeToggle(200);
+	$('#settings').show(200);
 	$('#Icon i').toggleClass('icon-settings icon-close');
 });
+
+// $('#setwork').click(function(){
+// 	$('#workslider').append("<input type='range' min='0' max='12' step='1' />");
+// })
 //---------------------------------
 //Get and set break time for user
 //---------------------------------
