@@ -42,6 +42,13 @@ html, body, .home {
   }
 }
 
+.app-header {
+	flex: 0 !important;
+	height: 100px;
+	background-color: darken($yellow, 20%);
+	text-align: center;
+}
+
 .good-day {
 	p {
 		width: 80%;
