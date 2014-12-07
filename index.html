@@ -29,24 +29,10 @@
 		<section class="break" id="settings">
 			<section class="fill-height">
 				<div class="app-header"><h3>Settings<h3></div>
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-				<a href="#work-day"><div><p class="h5">Set Workday<i class="icon-arrow-right"></i><p></div></a>
-				<a href="#lunch-time"><div><p class="h5">Set Lunch Time<i class="icon-arrow-right"></i><p></div></a>
+				<a href="#work-day" id="worklink"><div><p class="h5">Set Workday<i class="icon-arrow-right"></i><p></div></a>
+				<a href="#lunch" id="lunchlink"><div><p class="h5">Set Lunch Time<i class="icon-arrow-right"></i><p></div></a>
 				<a href="#"><div><p class="h5">Sounds: <span id="sound-settings"></span><i class="icon-arrow-right"></i><p></div></a>
-				<a href="#about"><div><p class="h5">About Yellow Light<i class="icon-arrow-right"></i><p></div></a>
-=======
->>>>>>> Stashed changes
-				<a href="#work-day" id="work"><div><p class="h5">Set Workday<p></div></a>
-				<a href="#lunch-time"><div><p class="h5">Set Lunch Time<p></div></a>
-				<a href="#disturb-time"><div><p class="h5">Set Do Not Disturb Time<p></div></a>
-				<a href="#"><div><p class="h5">Sounds: On<p></div></a>
-				<a href="#about" id="about-link"><div><p class="h5">About Yellow Light<p></div></a>
-<<<<<<< Updated upstream
-=======
->>>>>>> FETCH_HEAD
->>>>>>> Stashed changes
+				<a href="#about" id="aboutlink"><div><p class="h5">About Yellow Light<i class="icon-arrow-right"></i><p></div></a>
 			</section>
 		</section>
 		<!-- End Settings Section -->
@@ -74,16 +60,17 @@
 		<div class="fill-height">
 			<div class="app-header">
 				<span>
-					<a href="#settings"><i class="icon-arrow-left"></i></a>
+					<a href="#settings" class="back"><i class="icon-arrow-left"></i></a>
 					<h3>Set Work Day<h3>
 				</span>
 			</div>
 			<div class="time-selection">
-				<p class="h2"><i class="icon-arrow-left"></i><span id="start"></span><i class="icon-arrow-right"></i></p>
+				<p class="h2"><i class="icon-arrow-left"></i><span id="startwork"></span><i class="icon-arrow-right"></i></p>
 				<p class="h5">to</p>
-				<p class="h2"><i class="icon-arrow-left"></i><span id="end"></span><i class="icon-arrow-right"></i></p>
-				<div id="slider-range"></div>
-				<button id="set">Set</button>
+				<p class="h2"><i class="icon-arrow-left"></i><span id="endwork"></span><i class="icon-arrow-right"></i></p>
+				<div id="slider-range-work"></div>
+				<button id="setwork">Set</button>
+				<div id="confirmwork"></div>
 			</div>
 		</div>
 	</section>
@@ -94,16 +81,17 @@
 		<div class="fill-height">
 			<div class="app-header">
 				<span>
-					<a href="#settings"><i class="icon-arrow-left"></i></a>
+					<a href="#settings" class="back"><i class="icon-arrow-left"></i></a>
 					<h3>Set Lunch Time<h3>
 				</span>
 			</div>
 			<div class="time-selection">
-				<p class="h2"><i class="icon-arrow-left"></i><span id="start"></span><i class="icon-arrow-right"></i></p>
+				<p class="h2"><i class="icon-arrow-left"></i><span id="startlunch"></span><i class="icon-arrow-right"></i></p>
 				<p class="h5">to</p>
-				<p class="h2"><i class="icon-arrow-left"></i><span id="end"></span><i class="icon-arrow-right"></i></p>
-				<div id="slider-range"></div>
-				<button id="set">Set</button>
+				<p class="h2"><i class="icon-arrow-left"></i><span id="endlunch"></span><i class="icon-arrow-right"></i></p>
+				<div id="slider-range-lunch"></div>
+				<button id="setlunch">Set</button>
+				<div id="confirmlunch"></div>
 			</div>
 		</div>
 	</section>
@@ -114,7 +102,7 @@
 		<div class="fill-height">
 			<div class="app-header">
 				<span>
-					<a href="#settings" id="back"><i class="icon-arrow-left"></i></a>
+					<a href="#settings" class="back"><i class="icon-arrow-left"></i></a>
 					<h3>About</h3>
 				</span>
 			</div>
