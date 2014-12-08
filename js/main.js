@@ -44,7 +44,7 @@ $(function() {
 //----------------
 //VARS
 //----------------
-var breaktime;
+var breaktime, endbreak,nextbreak;
 
 // ----------------------------------------
 // Display Time
@@ -61,12 +61,13 @@ function startTime() {
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
+    var s = today.getSeconds();
     var ampm = h >= 12 ? 'pm' : 'am';
     // add a zero in front of numbers<10
     m = checkTime(m);
     h = h % 12;
     h = h ? h : 12; // the hour '0' should be '12'
-    document.getElementById('time').innerHTML = h + ":" + m + " " + ampm;
+    document.getElementById('time').innerHTML = h + ":" + m + ":" + s + " " + ampm;
     t = setTimeout(function () {
         startTime()
     }, 500);
@@ -141,8 +142,11 @@ $('.back').click(function(){
 $('#startDay').click(function(){
 	$('.good-day h3, .good-day p, #startDay').css('display', 'none');
 	$('#info').show();
-	breaktime = moment(moment().add(2, 's')).format('h:mm:s');
+	breaktime = moment(moment().add(2, 's')).format('h:mm:ss');
+	endbreak = moment(moment().add(7, 's')).format('h:mm:ss');
 	$('#info p').html("You should take a break in two hours at "+breaktime).fadeIn(1000).delay(5000).fadeOut(1000);
+	breakTime();
+	var breaktimeinterval = setInterval(breakTime, 1000)
 });
 
 $('#icon-info').click(function(){
@@ -152,13 +156,21 @@ $('#icon-info').click(function(){
 
 
 function breakTime(){
-	d = moment().format('h:mm:s');
+	d = moment().format('h:mm:ss');
 	if(d == breaktime){
 		$('#content').attr('class', 'break')
 		clearInterval(greetInterval);
+	}else if(d == endbreak){
+		setGreeting();
+		greetInterval = setInterval(setGreeting, 10000);
+		nextbreak = moment().add(2, 's').format('h:mm:ss')
+		$('#info p').html('break is over. take your next break at '+nextbreak).fadeIn(1000).delay(5000).fadeOut(1000);
+	}else if(d == nextbreak){
+		breaktime = moment(moment().add(2, 's')).format('h:mm:ss');
+		endbreak = moment(moment().add(7, 's')).format('h:mm:ss');
+		$('#info p').html("You should take a break in two hours at "+breaktime).fadeIn(1000).delay(5000).fadeOut(1000);
 	}
 }
-setInterval(breakTime, 1000)
 
 
 
