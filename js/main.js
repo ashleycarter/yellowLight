@@ -44,7 +44,7 @@ $(function() {
 //----------------
 //VARS
 //----------------
-var hourOfBreak,minsOfBreak,secsOfBreak;
+var breaktime;
 
 // ----------------------------------------
 // Display Time
@@ -101,6 +101,7 @@ var greetInterval = setInterval(setGreeting, 10000);
 // ----------------------------------------
 // Toggle Visibility Of Different Templates
 // ----------------------------------------
+$('#info').hide();
 
 $('#icon').click(function(){
 	$('.home').fadeToggle(200);
@@ -139,29 +140,25 @@ $('.back').click(function(){
 
 $('#startDay').click(function(){
 	$('.good-day h3, .good-day p, #startDay').css('display', 'none');
-	$('.icon-info').css('display', 'block')
-	var s = new Date();
-	var dayBreak = new Date(s.getFullYear(), s.getMonth(), s.getDay(), s.getHours(), s.getMinutes(), (s.getSeconds()+5));
-	hourOfBreak = dayBreak.getHours();
-	minsOfBreak = checkTime(dayBreak.getMinutes());
-	secsOfBreak = dayBreak.getSeconds();
-	$('#info p').html("You should take a break in two hours at "+hourOfBreak+":"+minsOfBreak).fadeIn(1000).delay(5000).fadeOut(1000);
+	$('#info').show();
+	breaktime = moment(moment().add(2, 's')).format('h:mm:s');
+	$('#info p').html("You should take a break in two hours at "+breaktime).fadeIn(1000).delay(5000).fadeOut(1000);
 });
 
-$('.icon-info').click(function(){
+$('#icon-info').click(function(){
 	$('#info p').fadeToggle();
 });
 
 
 
 function breakTime(){
-	d = new Date();
-	if(d.getSeconds() == secsOfBreak){
+	d = moment().format('h:mm:s');
+	if(d == breaktime){
 		$('#content').attr('class', 'break')
 		clearInterval(greetInterval);
 	}
 }
-//setInterval(breakTime, 1000)
+setInterval(breakTime, 1000)
 
 
 
