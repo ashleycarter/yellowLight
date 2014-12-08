@@ -23,4 +23,6 @@ $x-large: 80em;
 
 @include border-box-sizing;
 
-
+#content {
+	height: 100%;
+}

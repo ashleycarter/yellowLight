@@ -83,15 +83,15 @@ function setGreeting(){
 	refTime = new Date();
 	refH = refTime.getHours();
 	if (refH>=5 && refH<12){
-		$('#content').attr('class', 'morning')
+		$('#clock').attr('class', 'morning')
 		$('.good-day h3').html('Good Morning!')
 		$('.good-day p').html('Grab a cup of coffee and start your day off right!')
 	} else if (refH>=12 && refH<18){
-		$('#content').attr('class', 'afternoon')
+		$('#clock').attr('class', 'afternoon')
 		$('.good-day h3').html('Good Afternoon!')
 		$('.good-day p').html('Grab a cup of coffee and continue your day off right!')
 	}else if (refH>=18 || refH<5){
-		$('#content').attr('class', 'evening')
+		$('#clock').attr('class', 'evening')
 		$('.good-day h3').html('Good Evening!')
 		$('.good-day p').html('Grab a cup of coffee and end your day right!')
 	}
@@ -158,7 +158,7 @@ $('#icon-info').click(function(){
 function breakTime(){
 	d = moment().format('h:mm:ss');
 	if(d == breaktime){
-		$('#content').attr('class', 'break')
+		$('#clock').attr('class', 'break')
 		clearInterval(greetInterval);
 	}else if(d == endbreak){
 		setGreeting();
