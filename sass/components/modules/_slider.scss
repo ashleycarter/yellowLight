@@ -1,0 +1,21 @@
+// =========================================
+// jQuery UI Slider
+// =========================================
+
+.time-slider {
+	> div {
+		background: none;
+		border: 1px solid $transparent-dark-blue;
+		width: 85%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 1.75em;
+	}
+	.ui-slider-horizontal .ui-slider-range {
+		background-color: white;
+	}
+	.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header {
+		background: white;
+		border: 1px solid $transparent-dark-blue;
+	}
+}

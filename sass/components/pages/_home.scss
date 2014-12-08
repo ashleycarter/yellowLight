@@ -8,7 +8,7 @@ html, body, .home {
 .morning { @include morning-color; height: 100%; }
 .afternoon { @include afternoon-color; height: 100%; }
 .evening { @include evening-color; height: 100%; }
-.break { @include break-color; height: 100%; }
+.break-color { @include break-color; height: 100%; }
 
 .icon-bar {
 	width: 100%;
