@@ -112,28 +112,28 @@ $('#icon').click(function(){
 });
 
 $('#worklink').click(function(){
-	$('#settings').hide(200);
-	$('#work-day').css('display', 'block');
+	$('#settings').fadeOut(200);
+	$('#work-day').fadeIn(200);
 	$('#work-day').css('position', 'absolute');
 	$('body').css('overflow', 'hidden');
 })
 $('#lunchlink').click(function(){
-	$('#settings').hide(200);
-	$('#lunch').css('display', 'block');
+	$('#settings').fadeOut(200);
+	$('#lunch').fadeIn(200);
 	$('#lunch').css('position', 'absolute');
 	$('body').css('overflow', 'hidden');
 })
 $('#aboutlink').click(function(){
-	$('#settings').hide(200);
-	$('#about').css('display', 'block');
+	$('#settings').fadeOut(200);
+	$('#about').fadeIn(200);
 	$('#about').css('position', 'absolute');
 	$('body').css('overflow', 'hidden');
 })
 $('.back').click(function(){
-	$('#settings').show(200);
-	$('#work-day').css('display', 'none');;
-	$('#about').css('display', 'none');;
-	$('#lunch').css('display', 'none');
+	$('#settings').fadeIn(200);
+	$('#work-day').fadeOut(200);
+	$('#about').fadeOut(200);
+	$('#lunch').fadeOut(200);
 })
 
 //---------------------------------

@@ -121,7 +121,7 @@ html, body, .home {
   height: 100%; }
 
 .morning {
-  background: url(/img/morning.svg) no-repeat center center fixed;
+  background: url(../img/Morning.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -129,7 +129,7 @@ html, body, .home {
   height: 100%; }
 
 .afternoon {
-  background: url(/img/afternoon.svg) no-repeat center center fixed;
+  background: url(../img/Afternoon.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -137,7 +137,7 @@ html, body, .home {
   height: 100%; }
 
 .evening {
-  background: url(/img/evening.svg) no-repeat center center fixed;
+  background: url(../img/Evening.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -145,7 +145,7 @@ html, body, .home {
   height: 100%; }
 
 .break {
-  background: url(/img/break.svg) no-repeat center center fixed;
+  background: url(../img/Break.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
