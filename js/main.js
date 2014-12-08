@@ -45,6 +45,7 @@ $(function() {
 //VARS
 //----------------
 var breaktime, endbreak,nextbreak;
+var breakduration = 10;
 
 // ----------------------------------------
 // Display Time
@@ -142,8 +143,8 @@ $('.back').click(function(){
 $('#startDay').click(function(){
 	$('.good-day h3, .good-day p, #startDay').css('display', 'none');
 	$('#info').show();
-	breaktime = moment(moment().add(2, 's')).format('h:mm:ss');
-	endbreak = moment(moment().add(7, 's')).format('h:mm:ss');
+	breaktime = moment(moment().add(breakduration, 's')).format('h:mm:ss');
+	endbreak = moment(moment().add((breakduration*2), 's')).format('h:mm:ss');
 	$('#info p').html("You should take a break in two hours at "+breaktime).fadeIn(1000).delay(5000).fadeOut(1000);
 	breakTime();
 	var breaktimeinterval = setInterval(breakTime, 1000)
@@ -160,15 +161,15 @@ function breakTime(){
 	if(d == breaktime){
 		$('#content').attr('class', 'break')
 		clearInterval(greetInterval);
+		$('#info p').html('BREAK! take a load off').fadeIn(1000).delay(5000).fadeOut(1000);
 	}else if(d == endbreak){
 		setGreeting();
 		greetInterval = setInterval(setGreeting, 10000);
 		nextbreak = moment().add(2, 's').format('h:mm:ss')
 		$('#info p').html('break is over. take your next break at '+nextbreak).fadeIn(1000).delay(5000).fadeOut(1000);
 	}else if(d == nextbreak){
-		breaktime = moment(moment().add(2, 's')).format('h:mm:ss');
-		endbreak = moment(moment().add(7, 's')).format('h:mm:ss');
-		$('#info p').html("You should take a break in two hours at "+breaktime).fadeIn(1000).delay(5000).fadeOut(1000);
+		breaktime = moment(moment().add(breakduration, 's')).format('h:mm:ss');
+		endbreak = moment(moment().add((breakduration*2), 's')).format('h:mm:ss');
 	}
 }
 
