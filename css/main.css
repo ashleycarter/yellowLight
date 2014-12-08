@@ -51,6 +51,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+#content {
+  height: 100%; }
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   color: white; }
@@ -85,7 +88,7 @@ i {
   float: left; }
 
 .icon-close {
-  float: left; }
+  float: right; }
 
 .icon-settings, .icon-close {
   color: white;
@@ -118,7 +121,7 @@ html, body, .home {
   height: 100%; }
 
 .morning {
-  background: url(../img/Morning.svg) no-repeat center center fixed;
+  background: url(/img/morning.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -126,7 +129,7 @@ html, body, .home {
   height: 100%; }
 
 .afternoon {
-  background: url(../img/Afternoon.svg) no-repeat center center fixed;
+  background: url(/img/afternoon.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -134,7 +137,7 @@ html, body, .home {
   height: 100%; }
 
 .evening {
-  background: url(../img/Evening.svg) no-repeat center center fixed;
+  background: url(/img/evening.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -142,7 +145,7 @@ html, body, .home {
   height: 100%; }
 
 .break {
-  background: url(../img/Break.svg) no-repeat center center fixed;
+  background: url(/img/break.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
