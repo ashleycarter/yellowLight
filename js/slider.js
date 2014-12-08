@@ -1,7 +1,7 @@
-var beginwork = moment().hour(9).minute(0).second(0);
-var endwork = moment().hour(17).minute(0).second(0);
-var beginlunch = moment().hour(9).minute(0).second(0);
-var endlunch = moment().hour(17).minute(0).second(0);
+var beginwork = moment(moment().hour(9).minute(0)).format('H:mm');
+var endwork = moment(moment().hour(17).minute(0)).format('H:mm');
+var beginlunch = moment(moment().hour(12).minute(0)).format('H:mm');
+var endlunch = moment(moment().hour(13).minute(0)).format('H:mm');
   $(function() {
     //---------------------
     //Work slider
@@ -66,8 +66,9 @@ var endlunch = moment().hour(17).minute(0).second(0);
                 $('#startwork').text(hours1+':'+minutes1);
                 $( "#endwork" ).text(hours2+':'+minutes2);
 
-                beginwork = moment().hour(baseh1).minute(basem1).second(0);
-                endwork = moment().hour(baseh2).minute(basem2).second(0);
+                beginwork = moment(moment().hour(baseh1).minute(basem1)).format('H:mm');
+
+                endwork = moment(moment().hour(baseh2).minute(basem2)).format('H:mm');
             }
     });
     $( "#startwork" ).text('9:00 AM');
@@ -79,7 +80,6 @@ var endlunch = moment().hour(17).minute(0).second(0);
         $.cookie('startwork', beginwork);
         $.cookie('endwork', endwork);
         $('#confirmwork').text('Work has been set');
-        console.log($.cookie());
 
     })
     //----------------------
@@ -145,8 +145,8 @@ var endlunch = moment().hour(17).minute(0).second(0);
                 $('#startlunch').text(hours1+':'+minutes1);
                 $( "#endlunch" ).text(hours2+':'+minutes2);
 
-                beginlunch = moment().hour(baseh1).minute(basem1).second(0);
-                endlunch = moment().hour(baseh2).minute(basem2).second(0);
+                beginlunch = moment(moment().hour(baseh1).minute(basem1)).format('H:mm');
+                endlunch = moment(moment().hour(baseh2).minute(basem2)).format('H:mm');
             }
     });
     $( "#startlunch" ).text('12:00 PM');
@@ -158,7 +158,6 @@ var endlunch = moment().hour(17).minute(0).second(0);
         $.cookie('startlunch', beginlunch);
         $.cookie('endlunch', endlunch);
         $('#confirmlunch').text('Lunch has been set');
-        console.log($.cookie());
 
     })
 
