@@ -26,7 +26,7 @@
 		</div>
 
 		<!-- Settings Section -->
-		<section class="break" id="settings">
+		<section class="break-color" id="settings">
 			<section class="fill-height">
 				<div class="app-header"><h3>Settings<h3></div>
 				<a href="#work-day" id="worklink"><div><p class="h5">Set Workday<i class="icon-arrow-right"></i><p></div></a>
@@ -37,7 +37,68 @@
 		</section>
 		<!-- End Settings Section -->
 
-		<!-- Main Screen Section -->
+		<!-- Work Day Section -->
+		<section class="break-color time" id="work-day">
+			<section class="fill-height">
+				<div class="app-header">
+					<span>
+						<a href="#settings" class="back"><i class="icon-arrow-left"></i></a>
+						<a href="#main-screen" class="close"><i class="icon-close"></i></a>
+						<h3>Set Work Day</h3>
+					</span>
+				</div>
+				<div class="time-selection">
+					<p class="h5">Use the slider at the bottom of the screen to select your time.</p>
+					<p class="h3"><span id="startwork"></span></p>
+					<p class="h6">to</p>
+					<p class="h3"><span id="endwork"></span></p>
+					<span class="time-slider"><div id="slider-range-work"></div></span>
+					<a class="button" id="setwork">Set Work Time</a>
+					<div id="confirmwork"><em></em></div>
+				</div>
+			</section>
+		</section>
+		<!-- End Work Day Section -->
+
+		<!-- Lunch Section -->
+		<section class="break-color time" id="lunch">
+			<div class="fill-height">
+				<div class="app-header">
+					<span>
+						<a href="#settings" class="back"><i class="icon-arrow-left"></i></a>
+						<h3>Set Lunch Time<h3>
+					</span>
+				</div>
+				<div class="time-selection">
+					<p class="h5">Use the slider at the bottom of the screen to select your time.</p>
+					<p class="h3"><span id="startlunch"></span></p>
+					<p class="h6">to</p>
+					<p class="h3"><span id="endlunch"></span></p>
+					<span class="time-slider"><div id="slider-range-lunch"></div></span>
+					<a class="button" id="setlunch">Set Lunch Time</a>
+					<div id="confirmlunch"></div>
+				</div>
+			</div>
+		</section>
+		<!-- End Lunch Section -->
+
+		<!-- About Section -->
+		<section class="break-color time" id="about">
+			<div class="fill-height">
+				<div class="app-header">
+					<span>
+						<a href="#settings" class="back"><i class="icon-arrow-left"></i></a>
+						<h3>About</h3>
+					</span>
+				</div>
+				<div>
+					<p class="h5">Yellow Light was built by a small, easy-going team of designers and developers who simply want to encourage others to occassionally slow down and take a break.</p>
+				</div>
+			</div>
+		</section>
+		<!-- End About Section -->
+
+	<!-- Main Screen Section -->
 		<section class="home" id="main-screen">		
 			<div class="fill-height">
 				<div class="good-day">
@@ -51,67 +112,6 @@
 		</section>
 	</section>
 	<!-- End Main Screen Section -->
-
-	<!-- Work Day Section -->
-	<section class="break-color time" id="work-day">
-		<div class="fill-height">
-			<div class="app-header">
-				<span>
-					<a href="#settings" class="back"><i class="icon-arrow-left"></i></a>
-					<a href="#main-screen" class="close"><i class="icon-close"></i></a>
-					<h3>Set Work Day</h3>
-				</span>
-			</div>
-			<div class="time-selection">
-				<p class="h5">Use the slider at the bottom of the screen to select your time.</p>
-				<p class="h3"><span id="startwork"></span></p>
-				<p class="h6">to</p>
-				<p class="h3"><span id="endwork"></span></p>
-				<span class="time-slider"><div id="slider-range-work"></div></span>
-				<a class="button" id="setwork">Set Work Time</a>
-				<div id="confirmwork"><em></em></div>
-			</div>
-		</div>
-	</section>
-	<!-- End Work Day Section -->
-
-	<!-- Lunch Section -->
-	<section class="break-color time" id="lunch">
-		<div class="fill-height">
-			<div class="app-header">
-				<span>
-					<a href="#settings" class="back"><i class="icon-arrow-left"></i></a>
-					<h3>Set Lunch Time<h3>
-				</span>
-			</div>
-			<div class="time-selection">
-				<p class="h5">Use the slider at the bottom of the screen to select your time.</p>
-				<p class="h3"><span id="startlunch"></span></p>
-				<p class="h6">to</p>
-				<p class="h3"><span id="endlunch"></span></p>
-				<span class="time-slider"><div id="slider-range-lunch"></div></span>
-				<a class="button" id="setlunch">Set Lunch Time</a>
-				<div id="confirmlunch"></div>
-			</div>
-		</div>
-	</section>
-	<!-- End Lunch Section -->
-
-	<!-- About Section -->
-	<section class="break-color time" id="about">
-		<div class="fill-height">
-			<div class="app-header">
-				<span>
-					<a href="#settings" class="back"><i class="icon-arrow-left"></i></a>
-					<h3>About</h3>
-				</span>
-			</div>
-			<div>
-				<p class="h5">Yellow Light was built by a small, easy-going team of designers and developers who simply want to encourage others to occassionally slow down and take a break.</p>
-			</div>
-		</div>
-	</section>
-	<!-- End About Section -->
 
 	<!-- End App Content -->
 	</section>
