@@ -2,6 +2,9 @@ var beginwork = moment(moment().hour(9).minute(0)).format('H:mm');
 var endwork = moment(moment().hour(17).minute(0)).format('H:mm');
 var beginlunch = moment(moment().hour(12).minute(0)).format('H:mm');
 var endlunch = moment(moment().hour(13).minute(0)).format('H:mm');
+var arrow;
+
+
   $(function() {
     //---------------------
     //Work slider

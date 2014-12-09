@@ -157,6 +157,7 @@ $('#startDay').click(function(){
 	$('#info').fadeIn(500);
 	breaktime = moment(moment().add(2, 'h')).format('h:mm');
 	endbreak = moment(moment().add(2, 'h').add(breakduration, 'm')).format('h:mm');
+	// change to take a break in 'two hours' or 'half a hour'
 	$('#info p').html("You should take a break in two hours at "+breaktime).fadeIn(1000).delay(5000).fadeOut(1000);
 	breakTime();
 	var breaktimeinterval = setInterval(breakTime, 1000)
