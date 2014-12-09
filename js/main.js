@@ -149,24 +149,18 @@ $('.close').click(function(){
 })
 
 //---------------------------------
-//Get and set break time for user
+// Get and set break time for user
 //---------------------------------
 
 $('#startDay').click(function(){
 	$('.good-day h3, .good-day p, #startDay').css('display', 'none');
-	$('#info').show();
+	$('#info').fadeIn(500);
 	breaktime = moment(moment().add(2, 'h')).format('h:mm');
 	endbreak = moment(moment().add(2, 'h').add(breakduration, 'm')).format('h:mm');
 	$('#info p').html("You should take a break in two hours at "+breaktime).fadeIn(1000).delay(5000).fadeOut(1000);
 	breakTime();
 	var breaktimeinterval = setInterval(breakTime, 1000)
 });
-
-$('#icon-info').click(function(){
-	$('#info p').fadeToggle();
-});
-
-
 
 function breakTime(){
 	d = moment().format('h:mm');
@@ -192,6 +186,19 @@ function breakTime(){
 		clearInterval(breaktimeinterval);
 	}
 }
+
+//---------------------------------
+// Fade info icon content onclick
+//---------------------------------
+
+var fade_out = function() {
+	$('#info p').fadeOut();
+}
+
+$('#icon-info').click(function(){
+	$('#info p').fadeToggle();
+	setTimeout(fade_out, 5000);
+});
 
 
 
