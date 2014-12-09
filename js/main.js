@@ -42,8 +42,9 @@ $(function() {
 });
 
 //----------------
-//VARS
+// VARS
 //----------------
+
 var breaktime, endbreak,nextbreak;
 var breakduration = 10;
 
@@ -103,6 +104,7 @@ var greetInterval = setInterval(setGreeting, 10000);
 // ----------------------------------------
 // Toggle Visibility Of Different Templates
 // ----------------------------------------
+
 $('#info').hide();
 
 $('#icon').click(function(){
@@ -113,23 +115,24 @@ $('#icon').click(function(){
 
 $('#worklink').click(function(){
 	$('#settings').fadeOut(200);
+	$('.icon-bar').fadeOut(200);
 	$('#work-day').fadeIn(200);
 	$('#work-day').css('position', 'absolute');
-	$('body').css('overflow', 'hidden');
 })
 $('#lunchlink').click(function(){
 	$('#settings').fadeOut(200);
+	$('.icon-bar').fadeOut(200);
 	$('#lunch').fadeIn(200);
 	$('#lunch').css('position', 'absolute');
-	$('body').css('overflow', 'hidden');
 })
 $('#aboutlink').click(function(){
 	$('#settings').fadeOut(200);
+	$('.icon-bar').fadeOut(200);
 	$('#about').fadeIn(200);
 	$('#about').css('position', 'absolute');
-	$('body').css('overflow', 'hidden');
 })
 $('.back').click(function(){
+	$('.icon-bar').fadeIn(200);
 	$('#settings').fadeIn(200);
 	$('#work-day').fadeOut(200);
 	$('#about').fadeOut(200);
