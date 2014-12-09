@@ -118,6 +118,27 @@ i {
 .icon-arrow-right {
   float: right; }
 
+.arrow_box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1em; }
+
+.arrow_box:after, .arrow_box:before {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none; }
+
+.arrow_box:before {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-width: 13px;
+  margin-left: -13px; }
+
 .button {
   width: 80%;
   background-color: rgba(248, 248, 248, 0.5);
@@ -188,15 +209,28 @@ html, body, .home {
 .home {
   text-align: center;
   color: white; }
+  .home .fill-height {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: scroll;
+    padding: 3em 0; }
 
 #time {
   margin-bottom: 0.45em; }
 
-.good-day p {
-  width: 80%;
-  margin: 1.5em auto;
-  font-size: 1.15em;
-  line-height: 1.5em; }
+.good-day {
+  padding-top: 2.5em; }
+  .good-day p {
+    width: 80%;
+    margin: 1em auto;
+    font-size: 1.15em;
+    line-height: 1.5em; }
+
+#info a {
+  color: white;
+  text-decoration: none; }
 
 #settings {
   display: none;
@@ -267,14 +301,24 @@ html, body, .home {
   .time p:first-child {
     line-height: 1.5em; }
   .time .button {
-    margin-top: 1.5em; }
+    display: block;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em; }
 
-.time-selection p {
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto; }
-.time-selection .h2 {
-  font-size: 3.5em; }
+div.time-selection {
+  display: block; }
+
+.time-selection {
+  position: fixed;
+  top: 100px;
+  bottom: 0;
+  overflow: scroll; }
+  .time-selection p {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto; }
+  .time-selection .h2 {
+    font-size: 3.5em; }
 
 #confirmwork {
   margin-top: 1em; }

@@ -21,6 +21,14 @@ html, body, .home {
 .home {
 	text-align: center;
 	color: white;
+	.fill-height {
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: fixed;
+		overflow: scroll;
+		padding: 3em 0;
+	}
 }
 
 #time {
@@ -28,10 +36,22 @@ html, body, .home {
 }
 
 .good-day {
+	padding-top: 2.5em;
 	p {
 		width: 80%;
-		margin: 1.5em auto;
+		margin: 1em auto;
 		font-size: 1.15em;
 		line-height: 1.5em;
 	}
 }
+
+#info {
+	a {
+		color: white;
+		text-decoration: none;
+	}
+}
+
+
+
+

@@ -37,11 +37,21 @@
 		line-height: 1.5em;
 	}
 	.button {
+		display: block;
 		margin-top: 1.5em;
+		margin-bottom: 1.5em;
 	}
 }
 
+div.time-selection {
+	display: block;
+}
+
 .time-selection {
+	position: fixed;
+	top: 100px;
+	bottom: 0;
+	overflow: scroll;
 	p {
 		width: 85%;
 		margin-left: auto;
