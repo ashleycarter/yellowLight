@@ -29,11 +29,18 @@
 }
 
 .app-header {
+	flex: 0 !important;
+	height: 100px;
 	background-color: darken($yellow, 20%);
 	text-align: center;
-	span{
-		width: 85%;
-		margin-left: auto;
-		margin-right: auto;
-	}
+}
+
+.icon-bar--inner {
+	width: 100%;
+	display: block;
+	position: absolute;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	margin-top: -5px;
+	z-index: 999;
 }

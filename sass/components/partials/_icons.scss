@@ -26,3 +26,28 @@ i {
 .icon-arrow-right {
 	float: right;
 }
+
+// Arrowed Box
+
+.arrow_box {
+	position: relative;
+	background: $transparent-white;
+	padding: 1em;
+}
+.arrow_box:after, .arrow_box:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:before {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: $transparent-white;
+	border-width: 13px;
+	margin-left: -13px;
+}

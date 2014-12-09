@@ -42,8 +42,9 @@ $(function() {
 });
 
 //----------------
-//VARS
+// VARS
 //----------------
+
 var breaktime, endbreak,nextbreak;
 var breakduration = 10;
 
@@ -86,15 +87,15 @@ function setGreeting(){
 	if (refH>=5 && refH<12){
 		$('#clock').attr('class', 'morning')
 		$('.good-day h3').html('Good Morning!')
-		$('.good-day p').html('Grab a cup of coffee and start your day off right!')
+		$('.good-day .greeting').html('Grab a cup of coffee and start your day off right!')
 	} else if (refH>=12 && refH<18){
 		$('#clock').attr('class', 'afternoon')
 		$('.good-day h3').html('Good Afternoon!')
-		$('.good-day p').html('Grab a cup of coffee and continue your day off right!')
+		$('.good-day .greeting').html('Grab a cup of coffee and continue your day off right!')
 	}else if (refH>=18 || refH<5){
 		$('#clock').attr('class', 'evening')
 		$('.good-day h3').html('Good Evening!')
-		$('.good-day p').html('Grab a cup of coffee and end your day right!')
+		$('.good-day .greeting').html('Grab a cup of coffee and end your day right!')
 	}
 }
 setGreeting();
@@ -103,6 +104,7 @@ var greetInterval = setInterval(setGreeting, 10000);
 // ----------------------------------------
 // Toggle Visibility Of Different Templates
 // ----------------------------------------
+
 $('#info').hide();
 
 $('#icon').click(function(){
@@ -113,48 +115,52 @@ $('#icon').click(function(){
 
 $('#worklink').click(function(){
 	$('#settings').fadeOut(200);
+	$('.icon-bar').fadeOut(200);
 	$('#work-day').fadeIn(200);
 	$('#work-day').css('position', 'absolute');
-	$('body').css('overflow', 'hidden');
 })
 $('#lunchlink').click(function(){
 	$('#settings').fadeOut(200);
+	$('.icon-bar').fadeOut(200);
 	$('#lunch').fadeIn(200);
 	$('#lunch').css('position', 'absolute');
-	$('body').css('overflow', 'hidden');
 })
 $('#aboutlink').click(function(){
 	$('#settings').fadeOut(200);
+	$('.icon-bar').fadeOut(200);
 	$('#about').fadeIn(200);
 	$('#about').css('position', 'absolute');
-	$('body').css('overflow', 'hidden');
 })
 $('.back').click(function(){
+	$('.icon-bar').fadeIn(200);
 	$('#settings').fadeIn(200);
 	$('#work-day').fadeOut(200);
 	$('#about').fadeOut(200);
 	$('#lunch').fadeOut(200);
 })
+$('.close').click(function(){
+	$('.icon-bar').fadeIn(200);
+	$('#settings').fadeOut(200);
+	$('#work-day').fadeOut(200);
+	$('#about').fadeOut(200);
+	$('#lunch').fadeOut(200);
+	$('#main-screen').fadeIn(200);
+	$('#icon i').toggleClass('icon-settings icon-close');
+})
 
 //---------------------------------
-//Get and set break time for user
+// Get and set break time for user
 //---------------------------------
 
 $('#startDay').click(function(){
 	$('.good-day h3, .good-day p, #startDay').css('display', 'none');
-	$('#info').show();
+	$('#info').fadeIn(500);
 	breaktime = moment(moment().add(2, 'h')).format('h:mm');
 	endbreak = moment(moment().add(2, 'h').add(breakduration, 'm')).format('h:mm');
 	$('#info p').html("You should take a break in two hours at "+breaktime).fadeIn(1000).delay(5000).fadeOut(1000);
 	breakTime();
 	var breaktimeinterval = setInterval(breakTime, 1000)
 });
-
-$('#icon-info').click(function(){
-	$('#info p').fadeToggle();
-});
-
-
 
 function breakTime(){
 	d = moment().format('h:mm');
@@ -180,6 +186,19 @@ function breakTime(){
 		clearInterval(breaktimeinterval);
 	}
 }
+
+//---------------------------------
+// Fade info icon content onclick
+//---------------------------------
+
+var fade_out = function() {
+	$('#info p').fadeOut();
+}
+
+$('#icon-info').click(function(){
+	$('#info p').fadeToggle();
+	setTimeout(fade_out, 5000);
+});
 
 
 
