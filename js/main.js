@@ -87,15 +87,15 @@ function setGreeting(){
 	if (refH>=5 && refH<12){
 		$('#clock').attr('class', 'morning')
 		$('.good-day h3').html('Good Morning!')
-		$('.good-day p').html('Grab a cup of coffee and start your day off right!')
+		$('.good-day .greeting').html('Grab a cup of coffee and start your day off right!')
 	} else if (refH>=12 && refH<18){
 		$('#clock').attr('class', 'afternoon')
 		$('.good-day h3').html('Good Afternoon!')
-		$('.good-day p').html('Grab a cup of coffee and continue your day off right!')
+		$('.good-day .greeting').html('Grab a cup of coffee and continue your day off right!')
 	}else if (refH>=18 || refH<5){
 		$('#clock').attr('class', 'evening')
 		$('.good-day h3').html('Good Evening!')
-		$('.good-day p').html('Grab a cup of coffee and end your day right!')
+		$('.good-day .greeting').html('Grab a cup of coffee and end your day right!')
 	}
 }
 setGreeting();
@@ -137,6 +137,15 @@ $('.back').click(function(){
 	$('#work-day').fadeOut(200);
 	$('#about').fadeOut(200);
 	$('#lunch').fadeOut(200);
+})
+$('.close').click(function(){
+	$('.icon-bar').fadeIn(200);
+	$('#settings').fadeOut(200);
+	$('#work-day').fadeOut(200);
+	$('#about').fadeOut(200);
+	$('#lunch').fadeOut(200);
+	$('#main-screen').fadeIn(200);
+	$('#icon i').toggleClass('icon-settings icon-close');
 })
 
 //---------------------------------
