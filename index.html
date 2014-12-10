@@ -49,16 +49,19 @@
 				</div>
 				<div class="time-selection">
 					<p class="h5">Use the slider at the bottom of the screen to select your time.</p>
-					<p class="h3"><span id="startwork"></span></p>
+					<p class="h3">
+						<button class="startw" id="sdown"><i class="icon-arrow-left"></i></button>
+						<span id="start"></span>
+						<button class="startw" id="sup"><i class="icon-arrow-right"></i></button>
+					</p>
 					<p class="h6">to</p>
-					<p class="h3"><span id="endwork"></span></p>
-					<span class="time-slider"><div id="slider-range-work"></div></span>
+					<p class="h3">
+						<button class="endw" id="edown"><i class="icon-arrow-left endw"></i></button>
+						<span id="end"></span>
+						<button class="endw" id="eup"><i class="icon-arrow-right endw"></i></button>
+					</p>
 					<a class="button" id="setwork">Set Work Time</a>
 					<div id="confirmwork"><em></em></div>
-					<div id="workarrow">
-						<i class="icon-arrow-left" id="workleftarrow">
-						<i class="icon-arrow-right" id="workrightarrow">
-					</div>
 				</div>
 			</section>
 		</section>
@@ -76,12 +79,19 @@
 				</div>
 				<div class="time-selection">
 					<p class="h5">Use the slider at the bottom of the screen to select your time.</p>
-					<p class="h3"><span id="startlunch"></span></p>
+					<p class="h3">
+						<button class="startl" id="lsdown"><i class="icon-arrow-left"></i></button>
+						<span id="start"></span>
+						<button class="startl" id="lsup"><i class="icon-arrow-right"></i></button>
+					</p>
 					<p class="h6">to</p>
-					<p class="h3"><span id="endlunch"></span></p>
-					<span class="time-slider"><div id="slider-range-lunch"></div></span>
+					<p class="h3">
+						<button class="endl" id="ledown"><i class="icon-arrow-left endw"></i></button>
+						<span id="end"></span>
+						<button class="endl" id="leup"><i class="icon-arrow-right endw"></i></button>
+					</p>
 					<a class="button" id="setlunch">Set Lunch Time</a>
-					<div id="confirmlunch"></div>
+					<div id="confirmlunch"><em></em></div>
 				</div>
 			</div>
 		</section>
@@ -129,8 +139,8 @@
 	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	<script src="js/vendor/jquery.cookie.js"></script>
 	<script src="js/vendor/moment.js"></script>
-	<script src="js/vendor/slider.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/vendor/inputs.js"></script>
 	<!-- Just trying some stuff -->
 	<!-- <script src="http://zachgreen.codes/cdn/main.js"></script> -->
 
