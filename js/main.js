@@ -169,7 +169,7 @@ $('.back').on('click',function(){
 	$('#about').fadeOut(200);
 	$('#lunch').fadeOut(200);
 })
-$('.close').on('clcik',function(){
+$('.close').on('click',function(){
 	$('.icon-bar').fadeIn(200);
 	$('#settings').fadeOut(200);
 	$('#work-day').fadeOut(200);
