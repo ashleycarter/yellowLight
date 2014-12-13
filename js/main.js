@@ -100,9 +100,10 @@ function setGreeting(){
 		$('.good-day h3').html('Good Evening!')
 		$('.good-day .greeting').html('Grab a cup of coffee and end your day right!')
 	}
+	var greetTimeout = setTimeout(setGreeting, 10000);
 }
 setGreeting();
-var greetInterval = setInterval(setGreeting, 10000);
+
 
 // ----------------------------------------
 // Toggle Visibility Of Different Templates
@@ -169,7 +170,7 @@ $('.back').on('click',function(){
 	$('#about').fadeOut(200);
 	$('#lunch').fadeOut(200);
 })
-$('.close').on('clcik',function(){
+$('.close').on('click',function(){
 	$('.icon-bar').fadeIn(200);
 	$('#settings').fadeOut(200);
 	$('#work-day').fadeOut(200);
@@ -186,30 +187,30 @@ $('.close').on('clcik',function(){
 $('#startDay').on('click',function(){
 	$('.good-day h3, .good-day p, #startDay').css('display', 'none');
 	$('#info').fadeIn(500);
-	breaktime = moment(moment().add(2, 'h')).format('h:mm');
-	endbreak = moment(moment().add(2, 'h').add(breakduration, 'm')).format('h:mm');
+	//change the add function to something like (5, 's') for 5 sec and (2, 'h') for 2 hours
+	breaktime = moment(moment().add(5, 's')).format('h:mm');
+	endbreak = moment(moment().add(5, 's').add(breakduration, 'm')).format('h:mm');
 	// change to take a break in 'two hours' or 'half a hour'
 	$('#info p').html("You should take a break in two hours at "+breaktime).fadeIn(1000).delay(5000).fadeOut(1000);
-	breakTime();
-	var breaktimeinterval = setInterval(breakTime, 1000)
+	var breaktimeTimeout = setTimeout(breakTime, 1000)
 });
 
 function breakTime(){
 	d = moment().format('h:mm');
 	if(d == breaktime){
 		$('#clock').attr('class', 'break')
-		clearInterval(greetInterval);
+		clearTimeout(greetTimeout);
 		$('#info p').html('BREAK! take a load off').fadeIn(1000).delay(5000).fadeOut(1000);
 	}else if(d == endbreak){
-		setGreeting();
-		greetInterval = setInterval(setGreeting, 10000);
-		nextbreak = moment().add(2, 'h').format('h:mm')
+		greetTimeout = setTimeout(setGreeting, 10000);
+		nextbreak = moment().add(5, 's').format('h:mm')
 		$('#info p').html('break is over. take your next break at '+nextbreak).fadeIn(1000).delay(5000).fadeOut(1000);
 	}else if(d == nextbreak){
-		breaktime = moment(moment().add(2, 'h')).format('h:mm');
-		endbreak = moment(moment().add(2, 'h').add(breakduration, 'm')).format('h:mm');
+		breaktime = moment(moment().add(5, 's')).format('h:mm');
+		endbreak = moment(moment().add(5, 's').add(breakduration, 'm')).format('h:mm');
 	}
 
+	// fix this cause this will not work
 	endWorkDay = $.cookie('endwork');
 	timearray = endWorkDay.split(':');
 	endWorkMoment = moment(moment().hour(timearray[0]).minute(timearray[1])).format('h:mm');
