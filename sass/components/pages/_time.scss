@@ -56,9 +56,18 @@ div.time-selection {
 		width: 85%;
 		margin-left: auto;
 		margin-right: auto;
+		@include breakpoint($medium) {
+			width: 50%;
+		}
 	}
 	.h2 {
 		font-size: 3.5em;
+	}
+	.icon-arrow-left, .icon-arrow-right {
+		color: $transparent-dark-blue;
+		margin: -5px 0 0;
+		font-size: 0.5em;
+		padding: 15px;
 	}
 }
 
