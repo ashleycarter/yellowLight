@@ -112,6 +112,9 @@ i {
   font-size: 0.35em;
   margin-top: 1em; }
 
+.icon-arrow-left, .icon-arrow-right {
+  color: rgba(22, 56, 80, 0.6); }
+
 .icon-arrow-left {
   float: left; }
 
@@ -168,7 +171,7 @@ html, body, .home {
   height: 100%; }
 
 .morning {
-  background: url(../img/Morning.svg) no-repeat center center fixed;
+  background: url(/img/morning.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -176,7 +179,7 @@ html, body, .home {
   height: 100%; }
 
 .afternoon {
-  background: url(../img/Afternoon.svg) no-repeat center center fixed;
+  background: url(/img/afternoon.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -184,7 +187,7 @@ html, body, .home {
   height: 100%; }
 
 .evening {
-  background: url(../img/Evening.svg) no-repeat center center fixed;
+  background: url(/img/evening.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -192,7 +195,7 @@ html, body, .home {
   height: 100%; }
 
 .break-color {
-  background: url(../img/Break.svg) no-repeat center center fixed;
+  background: url(/img/break.svg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -317,8 +320,16 @@ div.time-selection {
     width: 85%;
     margin-left: auto;
     margin-right: auto; }
+    @media (min-width: 40em) {
+      .time-selection p {
+        width: 50%; } }
   .time-selection .h2 {
     font-size: 3.5em; }
+  .time-selection .icon-arrow-left, .time-selection .icon-arrow-right {
+    color: rgba(22, 56, 80, 0.6);
+    margin: -5px 0 0;
+    font-size: 0.5em;
+    padding: 15px; }
 
 #confirmwork {
   margin-top: 1em; }
