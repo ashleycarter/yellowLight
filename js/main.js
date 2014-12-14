@@ -198,7 +198,7 @@ $('#startDay').on('click',function(){
 function breakTime(){
 	d = moment().format('h:mm');
 	if(d == breaktime){
-		$('#clock').attr('class', 'break')
+		$('#clock').attr('class', 'break-color')
 		clearTimeout(greetTimeout);
 		$('#info p').html('BREAK! take a load off').fadeIn(1000).delay(5000).fadeOut(1000);
 	}else if(d == endbreak){
