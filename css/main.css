@@ -154,18 +154,68 @@ i {
   letter-spacing: 2px;
   text-decoration: none; }
 
-.time-slider > div {
-  background: none;
-  border: 1px solid rgba(22, 56, 80, 0.6);
+.time {
+  display: none;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  text-align: center; }
+  .time a {
+    text-decoration: none; }
+    .time a .back {
+      padding-left: 2.5em; }
+    .time a i {
+      color: white; }
+    .time a p {
+      color: rgba(11, 28, 40, 0.6); }
+  .time .h3 {
+    color: rgba(11, 28, 40, 0.6); }
+  .time .h5, .time .h6 {
+    color: rgba(11, 28, 40, 0.6);
+    margin-top: 1em;
+    margin-bottom: 1em; }
+  .time p:first-child {
+    line-height: 1.5em; }
+  .time .button {
+    display: block;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em; }
+
+div.time-selection {
+  display: block; }
+
+.time-selection {
+  position: fixed;
+  top: 100px;
+  bottom: 0;
+  overflow: auto; }
+  .time-selection p {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto; }
+    @media (min-width: 40em) {
+      .time-selection p {
+        width: 50%; } }
+  .time-selection .h2 {
+    font-size: 3.5em; }
+  .time-selection .icon-arrow-left, .time-selection .icon-arrow-right {
+    color: rgba(22, 56, 80, 0.6);
+    margin: -5px 0 0;
+    font-size: 0.5em;
+    padding: 15px; }
+
+#confirmwork {
+  margin-top: 1em; }
+
+#about div:nth-child(2) {
   width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1.75em; }
-.time-slider .ui-slider-horizontal .ui-slider-range {
-  background-color: white; }
-.time-slider .ui-state-default, .time-slider .ui-widget-content .ui-state-default, .time-slider .ui-widget-header {
-  background: white;
-  border: 1px solid rgba(22, 56, 80, 0.6); }
+  margin-top: 1em;
+  justify-content: flex-start; }
 
 html, body, .home {
   height: 100%; }
@@ -217,7 +267,7 @@ html, body, .home {
     height: 100%;
     width: 100%;
     position: fixed;
-    overflow: scroll;
+    overflow: auto;
     padding: 3em 0; }
 
 #time {
@@ -273,68 +323,5 @@ html, body, .home {
   position: absolute;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  margin-top: -5px;
+  margin-top: -10px;
   z-index: 999; }
-
-.time {
-  display: none;
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow-y: scroll;
-  text-align: center; }
-  .time a {
-    text-decoration: none; }
-    .time a .back {
-      padding-left: 2.5em; }
-    .time a i {
-      color: white; }
-    .time a p {
-      color: rgba(11, 28, 40, 0.6); }
-  .time .h3 {
-    color: rgba(11, 28, 40, 0.6); }
-  .time .h5, .time .h6 {
-    color: rgba(11, 28, 40, 0.6);
-    margin-top: 1em;
-    margin-bottom: 1em; }
-  .time p:first-child {
-    line-height: 1.5em; }
-  .time .button {
-    display: block;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em; }
-
-div.time-selection {
-  display: block; }
-
-.time-selection {
-  position: fixed;
-  top: 100px;
-  bottom: 0;
-  overflow: scroll; }
-  .time-selection p {
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto; }
-    @media (min-width: 40em) {
-      .time-selection p {
-        width: 50%; } }
-  .time-selection .h2 {
-    font-size: 3.5em; }
-  .time-selection .icon-arrow-left, .time-selection .icon-arrow-right {
-    color: rgba(22, 56, 80, 0.6);
-    margin: -5px 0 0;
-    font-size: 0.5em;
-    padding: 15px; }
-
-#confirmwork {
-  margin-top: 1em; }
-
-#about div:nth-child(2) {
-  width: 85%;
-  margin-top: 1em;
-  justify-content: flex-start; }
