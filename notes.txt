@@ -1,0 +1,21 @@
+Notes
+
+01/02/15
+
+===================
+
+Design
+
+- Add 'X' in header
+- Add screen - break alert
+- Add screen - end break alert
+- Add screen - ending time function ('Heading out early? screen')
+
+---------
+
+JS
+
+- Change 'you should take a break in...' from exact time to 'about x hr/min' (in 15min intervals) --> example: 'You should take a break in about 30 minutes'
+- Add  functionality to 'X' in header --> goes to 'Heading out early' screen if the user wants to stop the app from telling them to take breaks (will then default to home page with option of 'starting the day')
+
+===================
