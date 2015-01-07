@@ -1,47 +1,3 @@
-// ----------------------------------------
-// SVG images
-// ----------------------------------------
-
-// Replace all SVG images with inline SVG
-function svgReplace() {
-	$('img.svg').each(function(){
-		var $img = jQuery(this);
-		var imgID = $img.attr('id');
-		var imgClass = $img.attr('class');
-		var imgURL = $img.attr('src');
-
-		jQuery.get(imgURL, function(data) {
-			// Get the SVG tag, ignore the rest
-			var $svg = jQuery(data).find('svg');
-
-			// Add replaced image's ID to the new SVG
-			if(typeof imgID !== 'undefined') {
-				$svg = $svg.attr('id', imgID);
-			}
-
-			// Add replaced image's classes to the new SVG
-			if(typeof imgClass !== 'undefined') {
-				$svg = $svg.attr('class', imgClass+' replaced-svg');
-			}
-
-			// Remove any invalid XML tags as per http://validator.w3.org
-			$svg = $svg.removeAttr('xmlns:a');
-
-			// Replace image with new SVG
-			$img.replaceWith($svg);
-
-			setUpClickHandlers();
-			setUpTooltips();
-		}, 'xml');
-
-	});
-}
-
-$(function() {
-  svgReplace();
-});
-
-$(function(){
 //----------------
 // VARS
 //----------------
@@ -62,7 +18,7 @@ function checkTime(i) {
 	return i;
 }
 
-function startTime() {
+var startTime = function() {
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
@@ -112,22 +68,22 @@ setGreeting();
 $('#info').hide();
 
 $('#icon').on('click',function(){
-	$('.home').fadeToggle(200);
-	$('#settings').fadeToggle(200);
+	$('.home, #settings').fadeToggle(200);
 	$('#icon i').toggleClass('icon-settings icon-close');
 });
 
 $('#worklink').on('click',function(){
 	b = $(this)
-	$('#settings').fadeOut(200);
-	$('.icon-bar').fadeOut(200);
-	$('#lunch').hide();
+	$('#settings, .icon-bar').fadeOut(200);
+	// $('#lunch').hide();
 	$('#work-day').fadeIn(200);
 	$('#work-day').css('position', 'absolute');
 	begintimediv = $('#work-day #start')
 	endtimediv = $('#work-day #end')
+
 	$('#work-day').append('<input id="inputstart">')
 	$('#work-day').append('<input id="inputend">')
+
 	inputstart = $('#inputstart');
 	inputend = $('#inputend');
 	inputstart.attr({type: 'range',min: 0,max: 1440,step: 15,value: 540,hidden: true});
@@ -138,13 +94,14 @@ $('#worklink').on('click',function(){
 })
 $('#lunchlink').on('click',function(){
 	b = $(this)
-	$('#settings').fadeOut(200);
+	$('#settings, .icon-bar').fadeOut(200);
 	$('.icon-bar').fadeOut(200);
-	$('#work-day').hide();
+	// $('#work-day').hide();
 	$('#lunch').fadeIn(200);
-	$('#lunch').css('position', 'absolute');
+
 	$('#lunch').append('<input id="inputstart">')
 	$('#lunch').append('<input id="inputend">')
+
 	begintimediv = $('#lunch #start')
 	endtimediv = $('#lunch #end')
 	inputstart = $('#inputstart');
@@ -156,27 +113,17 @@ $('#lunchlink').on('click',function(){
     endtimediv.html('1:00 PM')
 })
 $('#aboutlink').on('click', function(){
-	$('#settings').fadeOut(200);
-	$('.icon-bar').fadeOut(200);
+	$('#settings, .icon-bar').fadeOut(200);
 	$('#about').fadeIn(200);
-	$('#about').css('position', 'absolute');
 })
 $('.back').on('click',function(){
-	$('#inputstart').detach();
-	$('#inputend').detach();
-	$('.icon-bar').fadeIn(200);
-	$('#settings').fadeIn(200);
-	$('#work-day').fadeOut(200);
-	$('#about').fadeOut(200);
-	$('#lunch').fadeOut(200);
+	$('#inputstart, #inputend').detach();
+	$('.icon-bar, #settings').fadeIn(200);
+	$('#work-day, #about, #lunch').fadeOut(200);
 })
 $('.close').on('click',function(){
-	$('.icon-bar').fadeIn(200);
-	$('#settings').fadeOut(200);
-	$('#work-day').fadeOut(200);
-	$('#about').fadeOut(200);
-	$('#lunch').fadeOut(200);
-	$('#main-screen').fadeIn(200);
+	$('.icon-bar, #main-screen').fadeIn(200);
+	$('#settings, #work-day, #about, #lunch').fadeOut(200);
 	$('#icon i').toggleClass('icon-settings icon-close');
 })
 
@@ -184,15 +131,42 @@ $('.close').on('click',function(){
 // Get and set break time for user
 //---------------------------------
 
+// Start Timer when 'Start Day Button is hit'
+// Timer should end in two hours
+// Info button should read how long until the timer is up
+//   based on 15 min increments (15min, 30min, etc.)
+// When the timer is up, the 'Take a Break' screen will display
+// User has option to select yes or no
+//
+// Break y? = Start Break Timer which should end
+//			  Timer should end in 10 minutes
+//			  When timer ends, 'End Break' screen will appear
+//			  Clicking on the 'End Break' screen will reset original timer for two hours
+//
+// Break n? = Start Timer for 15 minutes
+//			  When timer ends, the 'Take a Break' screen will display
+//			  User again has option to select yes or no
+//
+//			  Break y? = Start Break Timer
+//			  Break n? = Reset original timer for two hours
+
 $('#startDay').on('click',function(){
-	$('.good-day h3, .good-day p, #startDay').css('display', 'none');
-	$('#info').fadeIn(500);
-	//change the add function to something like (5, 's') for 5 sec and (2, 'h') for 2 hours
-	breaktime = moment(moment().add(5, 's')).format('h:mm');
-	endbreak = moment(moment().add(5, 's').add(breakduration, 'm')).format('h:mm');
-	// change to take a break in 'two hours' or 'half a hour'
-	$('#info p').html("You should take a break in two hours at "+breaktime).fadeIn(1000).delay(5000).fadeOut(1000);
-	var breaktimeTimeout = setTimeout(breakTime, 1000)
+
+	countdown();
+	
+	$('.good-day h3, .good-day p, #startDay').fadeOut(100);
+	$('#info').fadeIn(1000);
+	
+	function countdown () {
+
+		var setTime = moment(),
+		setBreakTime = moment(moment().add(1, 'h')),
+		timeDifference = setBreakTime.diff(setTime, 'minutes', true);
+
+		$('#info p').html("You should take a break in about " + timeDifference + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+
+	}
+
 });
 
 function breakTime(){
@@ -336,5 +310,3 @@ function formatTime(v){
     }
     return hours1+':'+minutes1;
 }
-
-});
