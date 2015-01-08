@@ -41,7 +41,9 @@ function setGreeting(){
 	}
 	var greetTimeout = setTimeout(setGreeting, 10000);
 }
+
 setGreeting();
+
 $('#info').hide();
 
 
@@ -75,7 +77,8 @@ $('#worklink').on('click',function(){
 	setMethods();
     begintimediv.html('9:00 AM');
     endtimediv.html('5:00 PM');
-})
+});
+
 $('#lunchlink').on('click',function(){
 	b = $(this)
 	$('#settings, .icon-bar').fadeOut(200);
@@ -95,21 +98,24 @@ $('#lunchlink').on('click',function(){
 	setMethods();
     begintimediv.html('12:00 AM')
     endtimediv.html('1:00 PM')
-})
+});
+
 $('#aboutlink').on('click', function(){
 	$('#settings, .icon-bar').fadeOut(200);
 	$('#about').fadeIn(200);
-})
+});
+
 $('.back').on('click',function(){
 	$('#inputstart, #inputend').detach();
 	$('.icon-bar, #settings').fadeIn(200);
 	$('#work-day, #about, #lunch').fadeOut(200);
-})
+});
+
 $('.close').on('click',function(){
 	$('.icon-bar, #main-screen').fadeIn(200);
 	$('#settings, #work-day, #about, #lunch').fadeOut(200);
 	$('#icon i').toggleClass('icon-settings icon-close');
-})
+});
 
 //---------------------------------
 // Inputs for work and lunch
@@ -121,19 +127,19 @@ var beginlunch = moment(moment().hour(12).minute(0)).format('H:mm');
 var endlunch = moment(moment().hour(13).minute(0)).format('H:mm');
 
 function setMethods () {
-	$('#sup').on('click',{input: inputstart, timediv: begintimediv}, inputUp)
-	$('#sdown').on('click',{input: inputstart, timediv: begintimediv}, inputDown)
-	$('#eup').on('click',{input: inputend, timediv: endtimediv}, inputUp)
-	$('#edown').on('click',{input: inputend, timediv: endtimediv}, inputDown)
-	$('#lsup').on('click',{input: inputstart, timediv: begintimediv}, inputUp)
-	$('#lsdown').on('click',{input: inputstart, timediv: begintimediv}, inputDown)
-	$('#leup').on('click',{input: inputend, timediv: endtimediv}, inputUp)
-	$('#ledown').on('click',{input: inputend, timediv: endtimediv}, inputDown)
-	$('#setwork, #setlunch').on('click', setCookie)
+	$('#sup').on('click',{input: inputstart, timediv: begintimediv}, inputUp);
+	$('#sdown').on('click',{input: inputstart, timediv: begintimediv}, inputDown);
+	$('#eup').on('click',{input: inputend, timediv: endtimediv}, inputUp);
+	$('#edown').on('click',{input: inputend, timediv: endtimediv}, inputDown);
+	$('#lsup').on('click',{input: inputstart, timediv: begintimediv}, inputUp);
+	$('#lsdown').on('click',{input: inputstart, timediv: begintimediv}, inputDown);
+	$('#leup').on('click',{input: inputend, timediv: endtimediv}, inputUp);
+	$('#ledown').on('click',{input: inputend, timediv: endtimediv}, inputDown);
+	$('#setwork, #setlunch').on('click', setCookie);
 }
 
 function inputUp(e){
-    b = $(this)
+    b = $(this);
     v = parseInt(e.data.input.val());
     v = v + 15;
     e.data.input.val(v);
@@ -141,6 +147,7 @@ function inputUp(e){
     e.data.timediv.html(format);
     buttonPress(b, v);
 }
+
 function inputDown(e){
     b = $(this);
     v = parseInt(e.data.input.val());
@@ -156,7 +163,7 @@ function buttonPress (m, v) {
         valueh1 = Math.floor(v / 60);
         valuem1 = v - (valueh1 * 60);
         beginwork = moment(moment().hour(valueh1).minute(valuem1)).format('H:mm');
-    }else if(m.hasClass('endw')){
+    } else if(m.hasClass('endw')){
         valueh1 = Math.floor(v / 60);
         valuem1 = v - (valueh1 * 60);
         endwork = moment(moment().hour(valueh1).minute(valuem1)).format('H:mm');
@@ -166,7 +173,7 @@ function buttonPress (m, v) {
         valueh1 = Math.floor(v / 60);
         valuem1 = v - (valueh1 * 60);
         beginlunch = moment(moment().hour(valueh1).minute(valuem1)).format('H:mm');
-    }else if(m.hasClass('endl')){
+    } else if(m.hasClass('endl')){
         valueh1 = Math.floor(v / 60);
         valuem1 = v - (valueh1 * 60);
         endlunch = moment(moment().hour(valueh1).minute(valuem1)).format('H:mm');
@@ -174,13 +181,13 @@ function buttonPress (m, v) {
 }
 
 function setCookie() {
-	if($(this).attr('id') == 'setwork'){
+	if($(this).attr('id') === 'setwork'){
 	    $.removeCookie('startwork', beginwork);
 	    $.removeCookie('endwork', endwork);
 	    $.cookie('startwork', beginwork);
 	    $.cookie('endwork', endwork);
 	    $('#confirmwork em').text('Work has been set');
-	}else if($(this).attr('id') == 'setlunch'){
+	} else if($(this).attr('id') === 'setlunch'){
 		$.removeCookie('startlunch', beginwork);
 	    $.removeCookie('endlunch', endwork);
 	    $.cookie('startlunch', beginlunch);
@@ -192,30 +199,120 @@ function setCookie() {
 function formatTime(v){
     var hours1 = Math.floor(v / 60);
     var minutes1 = v - (hours1 * 60);
-    if(hours1.length == 1) hours1 = '0' + hours1;
-    if(minutes1.length == 1) minutes1 = '0' + minutes1;
-    if(minutes1 == 0) minutes1 = '00';
+    if(hours1.length === 1) hours1 = '0' + hours1;
+    if(minutes1.length === 1) minutes1 = '0' + minutes1;
+    if(minutes1 === 0) minutes1 = '00';
     if(hours1 >= 12){
-        if (hours1 == 12){
+        if (hours1 === 12){
             hours1 = hours1;
             minutes1 = minutes1 + " PM";
-        }else{
+        } else{
             hours1 = hours1 - 12;
             minutes1 = minutes1 + " PM";
         }
-    }else{
+    } else {
 
         hours1 = hours1;
         minutes1 = minutes1 + " AM";
     }
-    if (hours1 == 0){
+    if (hours1 === 0){
         hours1 = 12;
         minutes1 = minutes1;
     }
     return hours1+':'+minutes1;
 }
 
+
 // -----------------------------------------------------
 // Entering Main App Section (starting the day)
 // -----------------------------------------------------
+
+$('#startDay').on('click', function() {
+	$('.good-day h3, .good-day p, #startDay').fadeOut(100);
+	$('#info').fadeIn(1000);
+
+	var seconds_defaultTimer = 5400;
+	var minutes_defaultTimer = Math.floor(seconds_defaultTimer / 60);
+
+	// var defaultTimer = moment().countdown(2, "h");
+
+	function timeout_trigger() {
+		window.alert('Break time!');
+	}
+
+
+	// Function to test timing
+	function timeout_init() {
+		$('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+		setTimeout("window.alert('Break time')", 2000);
+	}
+
+	// Actual function that begins a two hour timer // needs to be updated to include 'break' screen
+	// function timeout_init() {
+	// 	$('#info p').html("You should take a break in about " + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+	// 	setTimeout("window.alert('Break time')", minutes_defaultTimer);
+	// }
+
+	timeout_init();
+});
+
+
+
+// -----------------------------------------------------
+// Fade info icon content onclick
+// -----------------------------------------------------
+
+var fade_out = function() {
+	$('#info p').fadeOut();
+};
+
+$('#icon-info').click(function(){
+	$('#info p').fadeToggle();
+	setTimeout(fade_out, 5000);
+});
+
+
+// var currentTime = null,
+//     time = null;
+
+// var update = function () {
+//     time = moment(new Date());
+//     currentTime.html(time.format('h:mm a'));
+// };
+
+// $(document).ready(function(){
+//     currentTime = $('#time');
+//     update();
+//     setInterval(update, 1000);
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
