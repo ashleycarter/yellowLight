@@ -1,3 +1,33 @@
+
+// var currentTime = moment().format('hh:mm a');
+
+// var displayCurrentTime = function() {
+// 	setInterval(function() {
+// 		document.getElementById('time').innerHTML = currentTime;
+// 	}, 1000);
+// }
+
+// displayCurrentTime();
+
+    var h = moment().format('hh');
+    var m = moment().format('mm');
+    var s = moment().format('ss');
+    var a = moment().format('a');
+
+var displayCurrentTime = function() {
+	setInterval(function() {
+		document.getElementById('time').innerHTML = h + ":" + m + ":" + s + " " + a ;
+	}, 500);
+}
+
+displayCurrentTime();
+
+// function displayCurrentTime() {
+// 	document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+// }
+
+// var run = setInterval(displayCurrentTime, 500);
+
 //----------------
 // VARS
 //----------------
@@ -11,30 +41,30 @@ var endtimediv = $('#end')
 // Display Time
 // ----------------------------------------
 
-function checkTime(i) {
-	if (i < 10) {
-		i = "0" + i;
-	}
-	return i;
-}
+// function checkTime(i) {
+// 	if (i < 10) {
+// 		i = "0" + i;
+// 	}
+// 	return i;
+// }
 
-var startTime = function() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    // var s = today.getSeconds();
-    var ampm = h >= 12 ? 'pm' : 'am';
-    // add a zero in front of numbers<10
-    m = checkTime(m);
-    h = h % 12;
-    h = h ? h : 12; // the hour '0' should be '12'
-    document.getElementById('time').innerHTML = h + ":" + m + " " + ampm;
-    t = setTimeout(function () {
-        startTime()
-    }, 500);
-}
+// var startTime = function() {
+//     var today = new Date();
+//     var h = today.getHours();
+//     var m = today.getMinutes();
+//     // var s = today.getSeconds();
+//     var ampm = h >= 12 ? 'pm' : 'am';
+//     // add a zero in front of numbers<10
+//     m = checkTime(m);
+//     h = h % 12;
+//     h = h ? h : 12; // the hour '0' should be '12'
+//     document.getElementById('time').innerHTML = h + ":" + m + " " + ampm;
+//     t = setTimeout(function () {
+//         startTime()
+//     }, 500);
+// }
 
-startTime();
+// startTime();
 
 // ----------------------------------------
 // Keep track of time
@@ -152,20 +182,32 @@ $('.close').on('click',function(){
 
 $('#startDay').on('click',function(){
 
-	countdown();
-	
 	$('.good-day h3, .good-day p, #startDay').fadeOut(100);
 	$('#info').fadeIn(1000);
+
+	var time = 7200;
+	var duration = moment.duration('minutes', time);
+
+	setInterval(function() {
+		duration = moment.duration(duration.asMinutes() - 1000, 'minutes');
+	}, 1000);
+
+	$('#info p').html("You should take a break in about " + countdown + " minutes").fadeIn(1000).delay(5000).fadeOut(1000);
+
+	// countdown();
+
+	// $('.good-day h3, .good-day p, #startDay').fadeOut(100);
+	// $('#info').fadeIn(1000);
 	
-	function countdown () {
+	// function countdown () {
 
-		var setTime = moment(),
-		setBreakTime = moment(moment().add(1, 'h')),
-		timeDifference = setBreakTime.diff(setTime, 'minutes', true);
+	// 	var setTime = moment(),
+	// 	setBreakTime = moment(moment().add(1, 'h')),
+	// 	timeDifference = setBreakTime.diff(setTime, 'minutes', true);
 
-		$('#info p').html("You should take a break in about " + timeDifference + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+	// 	$('#info p').html("You should take a break in about " + timeDifference + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
 
-	}
+	// }
 
 });
 
