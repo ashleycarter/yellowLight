@@ -227,19 +227,13 @@ function formatTime(v){
 // Entering Main App Section (starting the day)
 // -----------------------------------------------------
 
+var seconds_defaultTimer = 5400;
+var minutes_defaultTimer = Math.floor(seconds_defaultTimer / 60);
+var defaultTimer = new Tock();
+
 $('#startDay').on('click', function() {
 	$('.good-day h3, .good-day p, #startDay').fadeOut(100);
 	$('#info').fadeIn(1000);
-
-	var seconds_defaultTimer = 5400;
-	var minutes_defaultTimer = Math.floor(seconds_defaultTimer / 60);
-
-	// var defaultTimer = moment().countdown(2, "h");
-
-	function timeout_trigger() {
-		window.alert('Break time!');
-	}
-
 
 	// Function to test timing
 	function timeout_init() {
@@ -256,6 +250,19 @@ $('#startDay').on('click', function() {
 	timeout_init();
 });
 
+// var currentTime = null,
+//     time = null;
+
+// var update = function () {
+//     time = moment(new Date());
+//     currentTime.html(time.format('h:mm a'));
+// };
+
+// $(document).ready(function(){
+//     currentTime = $('#time');
+//     update();
+//     setInterval(update, 1000);
+// });
 
 
 // -----------------------------------------------------
@@ -270,21 +277,6 @@ $('#icon-info').click(function(){
 	$('#info p').fadeToggle();
 	setTimeout(fade_out, 5000);
 });
-
-
-// var currentTime = null,
-//     time = null;
-
-// var update = function () {
-//     time = moment(new Date());
-//     currentTime.html(time.format('h:mm a'));
-// };
-
-// $(document).ready(function(){
-//     currentTime = $('#time');
-//     update();
-//     setInterval(update, 1000);
-// });
 
 
 
