@@ -59,7 +59,7 @@ $('#icon').on('click',function(){
 });
 
 $('#worklink').on('click',function(){
-	b = $(this)
+	b = $(this);
 	$('#settings, .icon-bar').fadeOut(200);
 	// $('#lunch').hide();
 	$('#work-day').fadeIn(200);
@@ -80,7 +80,7 @@ $('#worklink').on('click',function(){
 });
 
 $('#lunchlink').on('click',function(){
-	b = $(this)
+	b = $(this);
 	$('#settings, .icon-bar').fadeOut(200);
 	$('.icon-bar').fadeOut(200);
 	// $('#work-day').hide();
@@ -89,15 +89,15 @@ $('#lunchlink').on('click',function(){
 	$('#lunch').append('<input id="inputstart">');
 	$('#lunch').append('<input id="inputend">');
 
-	begintimediv = $('#lunch #start')
+	begintimediv = $('#lunch #start');
 	endtimediv = $('#lunch #end');
 	inputstart = $('#inputstart');
 	inputend = $('#inputend');
 	inputstart.attr({type: 'range',min: 0,max: 1440,step: 15,value: 720,hidden: true});
 	inputend.attr({type: 'range',min: 0,max: 1440,step: 15,value: 780,hidden: true});
 	setMethods();
-    begintimediv.html('12:00 AM')
-    endtimediv.html('1:00 PM')
+    begintimediv.html('12:00 AM');
+    endtimediv.html('1:00 PM');
 });
 
 $('#aboutlink').on('click', function(){
@@ -227,28 +227,27 @@ function formatTime(v){
 // Entering Main App Section (starting the day)
 // -----------------------------------------------------
 
-var seconds_defaultTimer = 5400;
-var minutes_defaultTimer = Math.floor(seconds_defaultTimer / 60);
-var defaultTimer = new Tock();
-
-$('#startDay').on('click', function() {
-	$('.good-day h3, .good-day p, #startDay').fadeOut(100);
-	$('#info').fadeIn(1000);
-
-	// Function to test timing
-	function timeout_init() {
-		$('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
-		setTimeout("window.alert('Break time')", 2000);
-	}
-
-	// Actual function that begins a two hour timer // needs to be updated to include 'break' screen
-	// function timeout_init() {
-	// 	$('#info p').html("You should take a break in about " + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
-	// 	setTimeout("window.alert('Break time')", minutes_defaultTimer);
-	// }
-
-	timeout_init();
+var ms_defaultTimer = 3000; // needs to be in ms
+var minutes_defaultTimer = Math.floor((ms_defaultTimer /1000) / 60);
+var defaultTimer = new Tock({
+    countdown: true,
+    interval: 0,
+    complete: timeout_done
 });
+
+$('#startDay').on('click', timeout_init);
+// Actual function that begins a two hour timer // needs to be updated to include 'break' screen
+function timeout_init() {
+    defaultTimer.start(ms_defaultTimer); // start countdown
+    $('.good-day h3, .good-day p, #startDay').fadeOut(100);
+    $('#info').fadeIn(1000);
+    $('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+}
+function timeout_done(){
+    alert('TAKE A BREAK');
+    defaultTimer.stop();
+}
+
 
 // var currentTime = null,
 //     time = null;
@@ -277,34 +276,3 @@ $('#icon-info').click(function(){
 	$('#info p').fadeToggle();
 	setTimeout(fade_out, 5000);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
