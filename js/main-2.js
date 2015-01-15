@@ -44,14 +44,14 @@ function setGreeting(){
 
 setGreeting();
 
-$('#info').hide();
+$('#info').hide(); // CSS display none on page load
 
 
 // -----------------------------------------------------
 // Toggle Visibility Of Different Templates
 // -----------------------------------------------------
 
-$('#info').hide();
+$('#info').hide(); // CSS display none on page load
 
 $('#icon').on('click',function(){
 	$('.home, #settings').fadeToggle(200);
