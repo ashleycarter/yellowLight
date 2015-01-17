@@ -30,8 +30,6 @@ function svgReplace() {
 			// Replace image with new SVG
 			$img.replaceWith($svg);
 
-			setUpClickHandlers();
-			setUpTooltips();
 		}, 'xml');
 
 	});
@@ -77,7 +75,7 @@ function setGreeting(){
 		$('#clock').attr('class', 'afternoon');
 		$('.good-day h3').html('Good Afternoon!');
 		$('.good-day .greeting').html('Grab a bite to eat and don\'t slow down this awesome day!');
-	}else if (refH>=18 || refH<5){
+	} else if (refH>=18 || refH<5){
 		$('#clock').attr('class', 'evening');
 		$('.good-day h3').html('Good Evening!');
 		$('.good-day .greeting').html('Time to relax!');
@@ -263,38 +261,6 @@ function formatTime(v){
     return hours1+':'+minutes1;
 }
 
-
-// -----------------------------------------------------
-// Entering Main App Section (starting the day)
-// -----------------------------------------------------
-
-var ms_defaultTimer = 3000; // needs to be in ms
-var minutes_defaultTimer = Math.floor((ms_defaultTimer / 1000) / 60);
-var defaultTimer = new Tock({
-    countdown: true,
-    interval: 0,
-    complete: timeout_done
-});
-
-var shortTimer = 3000;
-
-$('#startDay').on('click', timeout_init);
-// Actual function that begins a one hour timer // needs to be updated to include 'break' screen
-function timeout_init() {
-    defaultTimer.start(ms_defaultTimer); // start countdown
-    $('.good-day h3, .good-day p, #startDay').fadeOut(100);
-    $('#info, #return-to-home').fadeIn(1000);
-    $('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
-}
-
-function timeout_done(){
-    // alert('TAKE A BREAK');
-    // $('#main-screen').hide();
-    $('.home, #break, #return-to-home').fadeToggle(500);
-    defaultTimer.stop();
-}
-
-
 // -----------------------------------------------------
 // Return to home screen
 // -----------------------------------------------------
@@ -316,3 +282,66 @@ $('#icon-info').click(function(){
 	$('#info p').fadeToggle();
 	setTimeout(fade_out, 5000);
 });
+
+
+// -----------------------------------------------------
+// Entering Main App Section (starting the day)
+// -----------------------------------------------------
+
+var ms_defaultTimer = 3000; // needs to be in ms
+var minutes_defaultTimer = Math.floor((ms_defaultTimer / 1000) / 60);
+var defaultTimer = new Tock({
+    countdown: true,
+    interval: 0,
+    complete: timeout_done
+});
+
+var shortTimer = 3000;
+
+$('#startDay').on('click', timeout_init);
+$('#returnDay').on('click', timeout_init);
+// Actual function that begins a one hour timer // needs to be updated to include 'break' screen
+function timeout_init() {
+    defaultTimer.start(ms_defaultTimer); // start countdown
+    $('.good-day h3, .good-day p, #startDay, #end-break').fadeOut(100);
+    $('#home, #info, #return-to-home').fadeIn(1000);
+    $('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+}
+
+// -----------------------------------------------------
+// Break screen
+// -----------------------------------------------------
+
+function timeout_done(){
+    $('.home, #break, #return-to-home').fadeToggle(500);
+    defaultTimer.stop();
+}
+
+var ms_breakTimer = 3000; // needs to be in ms
+var minutes_breakTimer = Math.floor((ms_breakTimer / 1000) / 60);
+var breakTimer = new Tock({
+    countdown: true,
+    interval: 0,
+    complete: breakTime_done
+});
+
+$('#startBreak').on('click', breakTimeout_init);
+function breakTimeout_init() {
+    breakTimer.start(ms_breakTimer); // start countdown
+    $('#break, .home').fadeToggle(1000);
+    $('#clock').addClass('break');
+    $('#info p').html("Your break is ending in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+}
+
+// -----------------------------------------------------
+// Return // Ending Break
+// -----------------------------------------------------
+
+function breakTime_done(){
+    $('.home, #end-break, #return-to-home').fadeToggle(500);
+    defaultTimer.stop();
+}
+
+
+
+
