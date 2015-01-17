@@ -333,27 +333,65 @@ html, body, .home {
   margin-top: -10px;
   z-index: 999; }
 
+.break {
+  background: url("/img/break.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
 #break {
   display: none;
   position: fixed;
   width: 100%;
   height: 100%;
+  text-align: center;
   background: url("/img/break.svg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-  text-align: center; }
-  #break .break-image {
-    width: 150px;
-    margin: 0 auto;
-    margin-bottom: 1em;
-    fill: rgba(22, 56, 80, 0.6); }
+  background-size: cover; }
   #break .inner {
     flex: 0;
     width: 80%;
     padding: 3em 0; }
     #break .inner p {
+      margin: 1em auto;
+      color: rgba(22, 56, 80, 0.6); }
+
+.break-image {
+  width: 150px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  fill: rgba(22, 56, 80, 0.6); }
+
+#laterBreak {
+  margin-top: 1em;
+  background-color: rgba(255, 255, 255, 0.35); }
+
+.end-break {
+  background: url("/img/endBreak.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+#end-break {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: url("/img/endBreak.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+  #end-break .inner {
+    flex: 0;
+    width: 80%;
+    padding: 3em 0; }
+    #end-break .inner p {
       margin: 1em auto;
       color: rgba(22, 56, 80, 0.6); }
 

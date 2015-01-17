@@ -2,33 +2,43 @@
 // Break
 // =========================================
 
-#break {
+.break {
+	@include break-color;
+}
+
+@mixin break-screens {
 	display: none;
 	position: fixed;
 	width: 100%;
 	height: 100%;
-
-	@include break-color;
-
 	text-align: center;
+}
 
-	.break-image {
-		width: 150px;
-		margin: 0 auto;
-		margin-bottom: 1em;
-		fill: $transparent-dark-blue;
-	}
-
-	.inner {
+@mixin break-screens--inner {
 		flex: 0;
 		width: 80%;
 		padding: 3em 0;
+}
+
+#break {
+	@include break-screens;
+	@include break-color;
+
+	.inner {
+		@include break-screens--inner;
 
 		p {
 			margin: 1em auto;
 			color: $transparent-dark-blue;
 		}
 	}
+}
+
+.break-image {
+	width: 150px;
+	margin: 0 auto;
+	margin-bottom: 1em;
+	fill: $transparent-dark-blue;
 }
 
 #laterBreak {

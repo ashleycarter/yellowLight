@@ -1,0 +1,26 @@
+// =========================================
+// End Break
+// =========================================
+
+.end-break {
+	@include endBreak-color;
+}
+
+#end-break {
+	@include break-screens;
+	@include endBreak-color;
+
+	.inner {
+		@include break-screens--inner;
+
+		p {
+			margin: 1em auto;
+			color: $transparent-dark-blue;
+		}
+	}
+}
+
+#laterBreak {
+	margin-top: 1em;
+	background-color: rgba(white, 0.35);
+}
