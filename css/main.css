@@ -147,6 +147,7 @@ i {
   margin-left: -13px; }
 
 .button {
+  display: block;
   width: 80%;
   background-color: rgba(248, 248, 248, 0.5);
   border: none;
