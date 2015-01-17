@@ -256,6 +256,18 @@ html, body, .home {
   background-size: cover;
   height: 100%; }
 
+.no-svg .morning {
+  background: url("/img/png/morning.png") no-repeat center center fixed; }
+
+.no-svg .afternoon {
+  background: url("/img/png/afternoon.png") no-repeat center center fixed; }
+
+.no-svg .evening {
+  background: url("/img/png/evening.png") no-repeat center center fixed; }
+
+.no-svg .break-color {
+  background: url("/img/png/break-color.png") no-repeat center center fixed; }
+
 .icon-bar {
   width: 100%;
   display: block;
@@ -264,6 +276,8 @@ html, body, .home {
   z-index: 999; }
 
 .home {
+  display: block;
+  position: absolute;
   text-align: center;
   color: white; }
   .home .fill-height {

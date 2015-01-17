@@ -5,10 +5,31 @@ html, body, .home {
 	height: 100%;
 }
 
+// Standard Colors per Screen
+
 .morning { @include morning-color; height: 100%; }
 .afternoon { @include afternoon-color; height: 100%; }
 .evening { @include evening-color; height: 100%; }
 .break-color { @include break-color; height: 100%; }
+
+// SVG Fallbacks
+.no-svg .morning {
+	background: url('/img/png/morning.png') no-repeat center center fixed; 
+}
+
+.no-svg .afternoon {
+	background: url('/img/png/afternoon.png') no-repeat center center fixed; 
+}
+
+.no-svg .evening {
+	background: url('/img/png/evening.png') no-repeat center center fixed; 
+}
+
+.no-svg .break-color {
+	background: url('/img/png/break-color.png') no-repeat center center fixed; 
+}
+
+// Home Screen Styling
 
 .icon-bar {
 	width: 100%;
@@ -19,6 +40,8 @@ html, body, .home {
 }
 
 .home {
+	display: block;
+	position: absolute;
 	text-align: center;
 	color: white;
 	.fill-height {
