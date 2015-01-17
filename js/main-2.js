@@ -39,6 +39,13 @@ $(function() {
   svgReplace();
 });
 
+// PNG Fallbacks
+if (Modernizr.svg) {
+     $('#clock').addClass('has-svg');
+} else {
+    $('#clock').addClass('no-svg');
+}
+
 // -----------------------------------------------------
 // Display Current Time
 // -----------------------------------------------------
@@ -304,7 +311,7 @@ $('#returnDay').on('click', timeout_init);
 function timeout_init() {
     defaultTimer.start(ms_defaultTimer); // start countdown
     $('.good-day h3, .good-day p, #startDay, #end-break').fadeOut(100);
-    $('#home, #info, #return-to-home').fadeIn(1000);
+    $('#info, #return-to-home').fadeIn(1000);
     $('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
 }
 
@@ -313,7 +320,7 @@ function timeout_init() {
 // -----------------------------------------------------
 
 function timeout_done(){
-    $('.home, #break, #return-to-home').fadeToggle(500);
+    $('#break, #return-to-home').fadeToggle(500);
     defaultTimer.stop();
 }
 
@@ -328,7 +335,7 @@ var breakTimer = new Tock({
 $('#startBreak').on('click', breakTimeout_init);
 function breakTimeout_init() {
     breakTimer.start(ms_breakTimer); // start countdown
-    $('#break, .home').fadeToggle(1000);
+    $('#break').fadeToggle(500);
     $('#clock').addClass('break');
     $('#info p').html("Your break is ending in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
 }
@@ -338,7 +345,7 @@ function breakTimeout_init() {
 // -----------------------------------------------------
 
 function breakTime_done(){
-    $('.home, #end-break, #return-to-home').fadeToggle(500);
+    $('#end-break, #return-to-home').fadeToggle(500);
     defaultTimer.stop();
 }
 
