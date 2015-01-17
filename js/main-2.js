@@ -33,11 +33,11 @@ function setGreeting(){
 	} else if (refH>=12 && refH<18){
 		$('#clock').attr('class', 'afternoon');
 		$('.good-day h3').html('Good Afternoon!');
-		$('.good-day .greeting').html('Grab a cup of coffee and continue your day off right!');
+		$('.good-day .greeting').html('Grab a bite to eat and don\'t slow down this awesome day!');
 	}else if (refH>=18 || refH<5){
 		$('#clock').attr('class', 'evening');
 		$('.good-day h3').html('Good Evening!');
-		$('.good-day .greeting').html('Grab a cup of coffee and end your day right!');
+		$('.good-day .greeting').html('Time to relax!');
 	}
 	var greetTimeout = setTimeout(setGreeting, 10000);
 }
@@ -247,21 +247,6 @@ function timeout_done(){
     alert('TAKE A BREAK');
     defaultTimer.stop();
 }
-
-
-// var currentTime = null,
-//     time = null;
-
-// var update = function () {
-//     time = moment(new Date());
-//     currentTime.html(time.format('h:mm a'));
-// };
-
-// $(document).ready(function(){
-//     currentTime = $('#time');
-//     update();
-//     setInterval(update, 1000);
-// });
 
 
 // -----------------------------------------------------
