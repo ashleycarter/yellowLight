@@ -1,3 +1,46 @@
+// -----------------
+// SVG images
+// -----------------
+
+// Replace all SVG images with inline SVG
+function svgReplace() {
+	$('img.svg').each(function(){
+		var $img = jQuery(this);
+		var imgID = $img.attr('id');
+		var imgClass = $img.attr('class');
+		var imgURL = $img.attr('src');
+
+		jQuery.get(imgURL, function(data) {
+			// Get the SVG tag, ignore the rest
+			var $svg = jQuery(data).find('svg');
+
+			// Add replaced image's ID to the new SVG
+			if(typeof imgID !== 'undefined') {
+				$svg = $svg.attr('id', imgID);
+			}
+
+			// Add replaced image's classes to the new SVG
+			if(typeof imgClass !== 'undefined') {
+				$svg = $svg.attr('class', imgClass+' replaced-svg');
+			}
+
+			// Remove any invalid XML tags as per http://validator.w3.org
+			$svg = $svg.removeAttr('xmlns:a');
+
+			// Replace image with new SVG
+			$img.replaceWith($svg);
+
+			setUpClickHandlers();
+			setUpTooltips();
+		}, 'xml');
+
+	});
+}
+
+$(function() {
+  svgReplace();
+});
+
 // -----------------------------------------------------
 // Display Current Time
 // -----------------------------------------------------
@@ -50,8 +93,6 @@ $('#info').hide(); // CSS display none on page load
 // -----------------------------------------------------
 // Toggle Visibility Of Different Templates
 // -----------------------------------------------------
-
-$('#info').hide(); // CSS display none on page load
 
 $('#icon').on('click',function(){
 	$('.home, #settings').fadeToggle(200);
@@ -228,25 +269,39 @@ function formatTime(v){
 // -----------------------------------------------------
 
 var ms_defaultTimer = 3000; // needs to be in ms
-var minutes_defaultTimer = Math.floor((ms_defaultTimer /1000) / 60);
+var minutes_defaultTimer = Math.floor((ms_defaultTimer / 1000) / 60);
 var defaultTimer = new Tock({
     countdown: true,
     interval: 0,
     complete: timeout_done
 });
 
+var shortTimer = 3000;
+
 $('#startDay').on('click', timeout_init);
-// Actual function that begins a two hour timer // needs to be updated to include 'break' screen
+// Actual function that begins a one hour timer // needs to be updated to include 'break' screen
 function timeout_init() {
     defaultTimer.start(ms_defaultTimer); // start countdown
     $('.good-day h3, .good-day p, #startDay').fadeOut(100);
-    $('#info').fadeIn(1000);
+    $('#info, #return-to-home').fadeIn(1000);
     $('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
 }
+
 function timeout_done(){
-    alert('TAKE A BREAK');
+    // alert('TAKE A BREAK');
+    // $('#main-screen').hide();
+    $('.home, #break, #return-to-home').fadeToggle(500);
     defaultTimer.stop();
 }
+
+
+// -----------------------------------------------------
+// Return to home screen
+// -----------------------------------------------------
+
+// $('#return-to-home').click(function() {
+
+// });
 
 
 // -----------------------------------------------------
