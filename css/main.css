@@ -12,276 +12,276 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 100%;
-    vertical-align: baseline; }
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
 
 html {
-    line-height: 1; }
+  line-height: 1; }
 
 ol, ul {
-    list-style: none; }
+  list-style: none; }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0; }
+  border-collapse: collapse;
+  border-spacing: 0; }
 
 caption, th, td {
-    text-align: left;
-    font-weight: normal;
-    vertical-align: middle; }
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
 
 q, blockquote {
-    quotes: none; }
-q:before, q:after, blockquote:before, blockquote:after {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
     content: "";
     content: none; }
 
 a img {
-    border: none; }
+  border: none; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-    display: block; }
+  display: block; }
 
 .fill-height {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column; }
-.fill-height > a, .fill-height > div {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column; }
+  .fill-height > a, .fill-height > div {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center; }
-.fill-height > div {
+  .fill-height > div {
     width: 100%;
     margin: 0 auto; }
 
 *, *:before, *:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box; }
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
 
 #content {
-    height: 100%; }
+  height: 100%; }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-    color: white; }
+  color: white; }
 
 body {
-    font-size: 1em;
-    font-family: "Proxima-Nova", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 100; }
+  font-size: 1em;
+  font-family: "Proxima-Nova", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100; }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 100; }
+  font-weight: 100; }
 
 h1, .h1 {
-    font-size: 5.38836em; }
+  font-size: 5.38836em; }
 
 h2, .h2 {
-    font-size: 4.23607em; }
+  font-size: 4.23607em; }
 
 h3, .h3 {
-    font-size: 2.61803em; }
+  font-size: 2.61803em; }
 
 h4, .h4 {
-    font-size: 2.05817em; }
+  font-size: 2.05817em; }
 
 h5, .h5 {
-    font-size: 1.43463em; }
+  font-size: 1.43463em; }
 
 p {
-    font-size: 1.25em;
-    line-height: 1.5em; }
+  font-size: 1.25em;
+  line-height: 1.5em; }
 
 i {
-    display: block; }
+  display: block; }
 
 .icon-settings {
-    float: left; }
+  float: left; }
 
 .icon-close {
-    float: right; }
+  float: right; }
 
 .icon-settings, .icon-close {
-    color: white;
-    position: relative; }
+  color: white;
+  position: relative; }
 
 .time-selection i {
-    color: white;
-    font-size: 0.35em;
-    margin-top: 1em; }
+  color: white;
+  font-size: 0.35em;
+  margin-top: 1em; }
 
 .icon-arrow-left, .icon-arrow-right {
-    color: rgba(22, 56, 80, 0.6); }
+  color: rgba(22, 56, 80, 0.6); }
 
 .icon-arrow-left {
-    float: left; }
+  float: left; }
 
 .icon-arrow-right {
-    float: right; }
+  float: right; }
 
 .arrow_box {
-    position: relative;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 1em; }
+  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1em; }
 
 .arrow_box:after, .arrow_box:before {
-    bottom: 100%;
-    left: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none; }
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none; }
 
 .arrow_box:before {
-    border-color: rgba(255, 255, 255, 0);
-    border-bottom-color: rgba(255, 255, 255, 0.2);
-    border-width: 13px;
-    margin-left: -13px; }
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-width: 13px;
+  margin-left: -13px; }
 
 .button {
-    display: block;
-    width: 80%;
-    background-color: rgba(248, 248, 248, 0.5);
-    border: none;
-    margin: 0 auto;
-    padding: 2em 0;
-    color: rgba(22, 56, 80, 0.6);
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-decoration: none; }
+  display: block;
+  width: 80%;
+  background-color: rgba(248, 248, 248, 0.5);
+  border: none;
+  margin: 0 auto;
+  padding: 2em 0;
+  color: rgba(22, 56, 80, 0.6);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none; }
 
 .time {
-    display: none;
-    width: 100%;
-    height: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: auto;
-    text-align: center; }
-.time a {
+  display: none;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  text-align: center; }
+  .time a {
     text-decoration: none; }
-.time a .back {
-    padding-left: 2.5em; }
-.time a i {
-    color: white; }
-.time a p {
+    .time a .back {
+      padding-left: 2.5em; }
+    .time a i {
+      color: white; }
+    .time a p {
+      color: rgba(11, 28, 40, 0.6); }
+  .time .h3 {
     color: rgba(11, 28, 40, 0.6); }
-.time .h3 {
-    color: rgba(11, 28, 40, 0.6); }
-.time .h5, .time .h6 {
+  .time .h5, .time .h6 {
     color: rgba(11, 28, 40, 0.6);
     margin-top: 1em;
     margin-bottom: 1em; }
-.time p:first-child {
+  .time p:first-child {
     line-height: 1.5em; }
-.time .button {
+  .time .button {
     display: block;
     margin-top: 1.5em;
     margin-bottom: 1.5em; }
 
 div.time-selection {
-    display: block; }
+  display: block; }
 
 .time-selection {
-    position: fixed;
-    top: 100px;
-    bottom: 0;
-    overflow: auto; }
-.time-selection p {
+  position: fixed;
+  top: 100px;
+  bottom: 0;
+  overflow: auto; }
+  .time-selection p {
     width: 85%;
     margin-left: auto;
     margin-right: auto; }
-@media (min-width: 40em) {
-    .time-selection p {
+    @media (min-width: 40em) {
+      .time-selection p {
         width: 50%; } }
-.time-selection .h2 {
+  .time-selection .h2 {
     font-size: 3.5em; }
-.time-selection .icon-arrow-left, .time-selection .icon-arrow-right {
+  .time-selection .icon-arrow-left, .time-selection .icon-arrow-right {
     color: rgba(22, 56, 80, 0.6);
     margin: -5px 0 0;
     font-size: 0.5em;
     padding: 15px; }
 
 #confirmwork {
-    margin-top: 1em; }
+  margin-top: 1em; }
 
 #about div:nth-child(2) {
-    width: 85%;
-    margin-top: 1em;
-    justify-content: flex-start; }
+  width: 85%;
+  margin-top: 1em;
+  justify-content: flex-start; }
 
 html, body, .home {
-    height: 100%; }
+  height: 100%; }
 
 .morning {
-    background: url("/img/morning.svg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%; }
+  background: url("/img/morning.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%; }
 
 .afternoon {
-    background: url("/img/afternoon.svg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%; }
+  background: url("/img/afternoon.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%; }
 
 .evening {
-    background: url("/img/evening.svg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%; }
+  background: url("/img/evening.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%; }
 
 .break-color {
-    background: url("/img/break.svg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%; }
+  background: url("/img/break.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%; }
 
 .no-svg .morning {
-    background: url("/img/png/morning.png") no-repeat center center fixed; }
+  background: url("/img/png/morning.png") no-repeat center center fixed; }
 
 .no-svg .afternoon {
-    background: url("/img/png/afternoon.png") no-repeat center center fixed; }
+  background: url("/img/png/afternoon.png") no-repeat center center fixed; }
 
 .no-svg .evening {
-    background: url("/img/png/evening.png") no-repeat center center fixed; }
+  background: url("/img/png/evening.png") no-repeat center center fixed; }
 
 .no-svg .break-color {
-    background: url("/img/png/break-color.png") no-repeat center center fixed; }
+  background: url("/img/png/break-color.png") no-repeat center center fixed; }
 
 .icon-bar {
-    width: 100%;
-    display: block;
-    position: absolute;
-    padding: 1.5em;
-    z-index: 999; }
+  width: 100%;
+  display: block;
+  position: absolute;
+  padding: 1.5em;
+  z-index: 999; }
 
 .home {
-    display: block;
-    position: absolute;
-    text-align: center;
-    color: white; }
-.home .fill-height {
+  display: block;
+  position: absolute;
+  text-align: center;
+  color: white; }
+  .home .fill-height {
     display: block;
     height: 100%;
     width: 100%;
@@ -290,126 +290,126 @@ html, body, .home {
     padding: 3em 0; }
 
 #time {
-    margin-bottom: 0.45em; }
+  margin-bottom: 0.45em; }
 
 .good-day {
-    padding-top: 2.5em; }
-.good-day p {
+  padding-top: 2.5em; }
+  .good-day p {
     width: 80%;
     margin: 1em auto;
     font-size: 1.15em;
     line-height: 1.5em; }
 
 #info a {
-    color: white;
-    text-decoration: none; }
+  color: white;
+  text-decoration: none; }
 
 #return-to-home {
-    display: none; }
+  display: none; }
 
 #settings {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%; }
-#settings a {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  #settings a {
     text-decoration: none; }
-#settings a:nth-child(2) {
-    background-color: #FFE06F; }
-#settings a:nth-child(3) {
-    background-color: #ffe589; }
-#settings a:nth-child(4) {
-    background-color: #ffeba2; }
-#settings a:nth-child(5) {
-    background-color: #fff0bc; }
-#settings a:nth-child(6) {
-    background-color: #fff6d5; }
-#settings a div {
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto; }
-#settings a p {
-    color: rgba(11, 28, 40, 0.6); }
-#settings a i {
-    font-size: 0.75em; }
+    #settings a:nth-child(2) {
+      background-color: #FFE06F; }
+    #settings a:nth-child(3) {
+      background-color: #ffe589; }
+    #settings a:nth-child(4) {
+      background-color: #ffeba2; }
+    #settings a:nth-child(5) {
+      background-color: #fff0bc; }
+    #settings a:nth-child(6) {
+      background-color: #fff6d5; }
+    #settings a div {
+      width: 85%;
+      margin-left: auto;
+      margin-right: auto; }
+    #settings a p {
+      color: rgba(11, 28, 40, 0.6); }
+    #settings a i {
+      font-size: 0.75em; }
 
 .app-header {
-    flex: 0 !important;
-    height: 100px;
-    background-color: #ffca09;
-    text-align: center; }
+  flex: 0 !important;
+  height: 100px;
+  background-color: #ffca09;
+  text-align: center; }
 
 .icon-bar--inner {
-    width: 100%;
-    display: block;
-    position: absolute;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    margin-top: -10px;
-    z-index: 999; }
+  width: 100%;
+  display: block;
+  position: absolute;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  margin-top: -10px;
+  z-index: 999; }
 
 .break {
-    background: url("/img/break.svg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
+  background: url("/img/break.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
 #break {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    background: url("/img/break.svg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
-#break .inner {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: url("/img/break.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+  #break .inner {
     flex: 0;
     width: 80%;
     padding: 3em 0; }
-#break .inner p {
-    margin: 1em auto;
-    color: rgba(22, 56, 80, 0.6); }
+    #break .inner p {
+      margin: 1em auto;
+      color: rgba(22, 56, 80, 0.6); }
 
 .break-image {
-    width: 150px;
-    margin: 0 auto;
-    margin-bottom: 1em;
-    fill: rgba(22, 56, 80, 0.6); }
+  width: 150px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  fill: rgba(22, 56, 80, 0.6); }
 
 #laterBreak {
-    margin-top: 1em;
-    background-color: rgba(255, 255, 255, 0.35); }
+  margin-top: 1em;
+  background-color: rgba(255, 255, 255, 0.35); }
 
 .end-break {
-    background: url("/img/endBreak.svg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
+  background: url("/img/endBreak.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
 #end-break {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    background: url("/img/endBreak.svg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
-#end-break .inner {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: url("/img/endBreak.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+  #end-break .inner {
     flex: 0;
     width: 80%;
     padding: 3em 0; }
-#end-break .inner p {
-    margin: 1em auto;
-    color: rgba(22, 56, 80, 0.6); }
+    #end-break .inner p {
+      margin: 1em auto;
+      color: rgba(22, 56, 80, 0.6); }
 
 #laterBreak {
-    margin-top: 1em;
-    background-color: rgba(255, 255, 255, 0.35); }
+  margin-top: 1em;
+  background-color: rgba(255, 255, 255, 0.35); }

@@ -142,6 +142,22 @@ $('#lunchlink').on('click',function(){
     inputstart.attr({type: 'range',min: 0,max: 1440,step: 15,value: 720,hidden: true});
     inputend.attr({type: 'range',min: 0,max: 1440,step: 15,value: 780,hidden: true});
     setMethods();
+	b = $(this);
+	$('.icon-bar').fadeOut(200);
+	$('.icon-bar').fadeOut(200);
+	// $('#work-day').hide();
+	$('#lunch').fadeIn(200);
+
+	$('#lunch').append('<input id="inputstart">');
+	$('#lunch').append('<input id="inputend">');
+
+	begintimediv = $('#lunch #start');
+	endtimediv = $('#lunch #end');
+	inputstart = $('#inputstart');
+	inputend = $('#inputend');
+	inputstart.attr({type: 'range',min: 0,max: 1440,step: 15,value: 720,hidden: true});
+	inputend.attr({type: 'range',min: 0,max: 1440,step: 15,value: 780,hidden: true});
+	setMethods();
     begintimediv.html('12:00 AM');
     endtimediv.html('1:00 PM');
 });
@@ -149,6 +165,8 @@ $('#lunchlink').on('click',function(){
 $('#aboutlink').on('click', function(){
     $('#settings, .icon-bar').fadeOut(200);
     $('#about').fadeIn(200);
+	$('.icon-bar').fadeOut(200);
+	$('#about').fadeIn(200);
 });
 
 $('.back').on('click',function(){
@@ -158,7 +176,7 @@ $('.back').on('click',function(){
 });
 
 $('.close').on('click',function(){
-    $('.icon-bar, #main-screen').fadeIn(200);
+    $('.icon-bar, #main-screen, .home').fadeIn(200);
     $('#settings, #work-day, #about, #lunch').fadeOut(200);
     $('#icon i').toggleClass('icon-settings icon-close');
 });
@@ -309,6 +327,7 @@ $('#startDay').on('click', timeout_init);
 $('#returnDay').on('click', timeout_init);
 $('#laterBreak').on('click', function(){
     defaultTimer.start(ms_defaultTimer); // start countdown
+    $('#clock').removeClass('break');
     $('#break, #return-to-home').fadeToggle(500);
     $('#info, #return-to-home').fadeIn(1000);
     $('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
@@ -328,6 +347,7 @@ function timeout_init() {
 
 function timeout_done(){
     $('#break, #return-to-home').fadeToggle(500);
+    $('#clock').delay(2000).addClass('break');
     defaultTimer.stop();
 }
 
@@ -353,5 +373,6 @@ function breakTimeout_init() {
 
 function breakTime_done(){
     $('#end-break, #return-to-home').fadeToggle(500);
-    defaultTimer.stop();
+    $('#clock').delay(2000).removeClass('break');
+    breakTimer.stop();
 }
