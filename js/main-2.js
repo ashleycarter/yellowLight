@@ -13,25 +13,19 @@ function svgReplace() {
         jQuery.get(imgURL, function(data) {
             // Get the SVG tag, ignore the rest
             var $svg = jQuery(data).find('svg');
-
             // Add replaced image's ID to the new SVG
             if(typeof imgID !== 'undefined') {
                 $svg = $svg.attr('id', imgID);
             }
-
             // Add replaced image's classes to the new SVG
             if(typeof imgClass !== 'undefined') {
                 $svg = $svg.attr('class', imgClass+' replaced-svg');
             }
-
             // Remove any invalid XML tags as per http://validator.w3.org
             $svg = $svg.removeAttr('xmlns:a');
-
             // Replace image with new SVG
             $img.replaceWith($svg);
-
         }, 'xml');
-
     });
 }
 
@@ -58,11 +52,9 @@ var update = function () {
     currentTime.html(time.format('h:mm a'));
 };
 
-$(document).ready(function(){
-    currentTime = $('#time');
-    update();
-    setInterval(update, 1000);
-});
+currentTime = $('#time');
+update();
+setInterval(update, 1000);
 
 
 // -----------------------------------------------------
@@ -285,15 +277,6 @@ function formatTime(v){
     }
     return hours1+':'+minutes1;
 }
-
-// -----------------------------------------------------
-// Return to home screen
-// -----------------------------------------------------
-
-// $('#return-to-home').click(function() {
-
-// });
-
 
 // -----------------------------------------------------
 // Fade info icon content onclick
