@@ -196,7 +196,7 @@ function setMethods () {
 
 function inputUp(e){
     b = $(this);
-    v = parseInt(e.data.input.val());
+    v = parseInt(e.data.input.val(), 10);
     v = v + 15;
     e.data.input.val(v);
     format = formatTime(v);
@@ -206,7 +206,7 @@ function inputUp(e){
 
 function inputDown(e){
     b = $(this);
-    v = parseInt(e.data.input.val());
+    v = parseInt(e.data.input.val(), 10);
     v = v - 15;
     e.data.input.val(v);
     format = formatTime(v);
@@ -260,20 +260,16 @@ function formatTime(v){
     if(minutes1 === 0) minutes1 = '00';
     if(hours1 >= 12){
         if (hours1 === 12){
-            hours1 = hours1;
             minutes1 = minutes1 + " PM";
         } else{
             hours1 = hours1 - 12;
             minutes1 = minutes1 + " PM";
         }
     } else {
-
-        hours1 = hours1;
         minutes1 = minutes1 + " AM";
     }
     if (hours1 === 0){
         hours1 = 12;
-        minutes1 = minutes1;
     }
     return hours1+':'+minutes1;
 }
