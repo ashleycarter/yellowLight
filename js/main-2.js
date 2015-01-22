@@ -325,9 +325,13 @@ function timeout_init() {
 // -----------------------------------------------------
 
 function timeout_done(){
+
+	var breakSnd = new Audio("../snd/break.wav");
+
     $('#break, #return-to-home').fadeToggle(500);
     $('#clock').delay(2000).addClass('break');
     defaultTimer.stop();
+    breakSnd.play();
 }
 
 var ms_breakTimer = 10000; // needs to be in ms
@@ -351,7 +355,11 @@ function breakTimeout_init() {
 // -----------------------------------------------------
 
 function breakTime_done(){
+
+	var endBreakSnd = new Audio("../snd/end-break.wav");
+
     $('#end-break, #return-to-home').fadeToggle(500);
     $('#clock').delay(2000).removeClass('break');
     breakTimer.stop();
+    endBreakSnd.play();
 }
