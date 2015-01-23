@@ -292,6 +292,8 @@ $('#icon-info').click(function(){
 // Entering Main App Section (starting the day)
 // -----------------------------------------------------
 
+var audio = new Audio();
+
 var ms_defaultTimer = 20000; // needs to be in ms
 var minutes_defaultTimer = Math.floor((ms_defaultTimer / 1000) / 60);
 var defaultTimer = new Tock({
@@ -326,12 +328,12 @@ function timeout_init() {
 
 function timeout_done(){
 
-	var breakSnd = new Audio("../snd/break.wav");
+	audio.src = "../snd/break.wav";
 
     $('#break, #return-to-home').fadeToggle(500);
     $('#clock').delay(2000).addClass('break');
     defaultTimer.stop();
-    breakSnd.play();
+    audio.play();
 }
 
 var ms_breakTimer = 10000; // needs to be in ms
@@ -356,10 +358,10 @@ function breakTimeout_init() {
 
 function breakTime_done(){
 
-	var endBreakSnd = new Audio("../snd/end-break.wav");
+	audio.src = "../snd/end-break.wav";
 
     $('#end-break, #return-to-home').fadeToggle(500);
     $('#clock').delay(2000).removeClass('break');
     breakTimer.stop();
-    endBreakSnd.play();
+    audio.play();
 }
