@@ -292,7 +292,16 @@ $('#icon-info').click(function(){
 // Entering Main App Section (starting the day)
 // -----------------------------------------------------
 
-var audio = new Audio();
+$('#return-to-home').on('click', function(){
+    $('#info, #return-to-home, #end-break, #break').fadeOut(1);
+    $('.good-day h3, .good-day p, #startDay').fadeIn(1000);
+    defaultTimer.stop();
+    breakTimer.stop();
+});
+
+
+var timerAudio = new Audio("snd/break.wav");
+var breakAudio = new Audio("snd/end-break.wav");
 
 var ms_defaultTimer = 20000; // needs to be in ms
 var minutes_defaultTimer = Math.floor((ms_defaultTimer / 1000) / 60);
@@ -315,10 +324,7 @@ $('#laterBreak').on('click', function(){
 });
 // Actual function that begins a one hour timer // needs to be updated to include 'break' screen
 function timeout_init() {
-
-
     if (true){// checkCookies('work') || checkCookies('lunch')  add in if stmt
-        
         defaultTimer.start(ms_defaultTimer); // start countdown
         $('#clock').removeClass('break');
         $('.good-day h3, .good-day p, #startDay, #end-break').fadeOut(100);
@@ -335,13 +341,10 @@ function timeout_init() {
 // -----------------------------------------------------
 
 function timeout_done(){
-
-	audio.src = "../snd/break.wav";
-
-    $('#break, #return-to-home').fadeToggle(500);
+    $('#break').fadeToggle(500);
     $('#clock').delay(2000).addClass('break');
     defaultTimer.stop();
-    audio.play();
+    timerAudio.play();
 }
 
 var ms_breakTimer = 10000; // needs to be in ms
@@ -365,13 +368,10 @@ function breakTimeout_init() {
 // -----------------------------------------------------
 
 function breakTime_done(){
-
-	audio.src = "../snd/end-break.wav";
-
-    $('#end-break, #return-to-home').fadeToggle(500);
+    $('#end-break').fadeToggle(500);
     $('#clock').delay(2000).removeClass('break');
     breakTimer.stop();
-    audio.play();
+    breakAudio.play();
 }
 // -----------------------------------------------------
 // Cookie functions to test
@@ -394,4 +394,3 @@ function checkCookies(timeOfDay){
         return moment(moment(), 'H:mm').isBetween(sl,el);
     }
 }
-// console.log(checkCookies('lunch'));
