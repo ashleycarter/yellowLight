@@ -97,7 +97,6 @@ $('#icon').on('click',function(){
 });
 
 $('#worklink').on('click',function(){
-    b = $(this);
     $('#settings, .icon-bar').fadeOut(200);
     // $('#lunch').hide();
     $('#work-day').fadeIn(200);
@@ -118,7 +117,6 @@ $('#worklink').on('click',function(){
 });
 
 $('#lunchlink').on('click',function(){
-    b = $(this);
     $('#settings, .icon-bar').fadeOut(200);
     $('.icon-bar').fadeOut(200);
     // $('#work-day').hide();
@@ -134,7 +132,6 @@ $('#lunchlink').on('click',function(){
     inputstart.attr({type: 'range',min: 0,max: 1440,step: 15,value: 720,hidden: true});
     inputend.attr({type: 'range',min: 0,max: 1440,step: 15,value: 780,hidden: true});
     setMethods();
-    b = $(this);
     $('.icon-bar').fadeOut(200);
     $('.icon-bar').fadeOut(200);
     // $('#work-day').hide();
@@ -295,6 +292,8 @@ $('#icon-info').click(function(){
 $('#return-to-home').on('click', function(){
     $('#info, #return-to-home, #end-break, #break').fadeOut(1);
     $('.good-day h3, .good-day p, #startDay').fadeIn(1000);
+    $('#icon').show();
+    $('#clock').removeClass('break');
     defaultTimer.stop();
     breakTimer.stop();
 });
@@ -341,6 +340,7 @@ function timeout_init() {
 // -----------------------------------------------------
 
 function timeout_done(){
+    $('#icon').hide();
     $('#break').fadeToggle(500);
     $('#clock').delay(2000).addClass('break');
     defaultTimer.stop();
@@ -357,6 +357,7 @@ var breakTimer = new Tock({
 
 $('#startBreak').on('click', breakTimeout_init);
 function breakTimeout_init() {
+    $('#icon').show();
     breakTimer.start(ms_breakTimer); // start countdown
     $('#break').fadeToggle(500);
     $('#clock').addClass('break');
@@ -368,6 +369,7 @@ function breakTimeout_init() {
 // -----------------------------------------------------
 
 function breakTime_done(){
+    $('#icon').hide();
     $('#end-break').fadeToggle(500);
     $('#clock').delay(2000).removeClass('break');
     breakTimer.stop();
