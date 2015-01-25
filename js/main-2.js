@@ -315,11 +315,19 @@ $('#laterBreak').on('click', function(){
 });
 // Actual function that begins a one hour timer // needs to be updated to include 'break' screen
 function timeout_init() {
-    defaultTimer.start(ms_defaultTimer); // start countdown
-    $('#clock').removeClass('break');
-    $('.good-day h3, .good-day p, #startDay, #end-break').fadeOut(100);
-    $('#info, #return-to-home').fadeIn(1000);
-    $('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+
+
+    if (true){// checkCookies('work') || checkCookies('lunch')  add in if stmt
+        
+        defaultTimer.start(ms_defaultTimer); // start countdown
+        $('#clock').removeClass('break');
+        $('.good-day h3, .good-day p, #startDay, #end-break').fadeOut(100);
+        $('#info, #return-to-home').fadeIn(1000);
+        $('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+    }else{
+        // TODO do something if user wants to over ride for timer outside of work.
+        alert("You\'re off work. Go to sleep!");
+    }
 }
 
 // -----------------------------------------------------
@@ -365,3 +373,25 @@ function breakTime_done(){
     breakTimer.stop();
     audio.play();
 }
+// -----------------------------------------------------
+// Cookie functions to test
+// -----------------------------------------------------
+//
+// Check cookies to see if timer is trying to start outside of work hours or during lunch.
+// params bool, bool
+function checkCookies(timeOfDay){
+    (timeOfDay == "work") ? w = true : w = false;
+    (timeOfDay == "lunch") ? l = true : l = false;
+
+    if (w){
+        var sw = moment($.cookie('startwork'), 'H:mm');
+        var ew = moment($.cookie('endwork'), 'H:mm');
+        return moment(moment(), 'H:mm').isBetween(sw,ew);
+    }
+    if(l){
+        var sl = moment($.cookie('startlunch'), 'H:mm');
+        var el = moment($.cookie('endlunch'), 'H:mm');
+        return moment(moment(), 'H:mm').isBetween(sl,el);
+    }
+}
+// console.log(checkCookies('lunch'));
