@@ -11,6 +11,8 @@ html, body, .home {
 .afternoon { @include afternoon-color; height: 100%; }
 .evening { @include evening-color; height: 100%; }
 .break-color { @include break-color; height: 100%; }
+.endBreak-color { @include endBreak-color; height: 100%; }
+.return-home { @include returnHome-color; height: 100%; }
 
 // SVG Fallbacks
 .no-svg .morning {
@@ -27,6 +29,20 @@ html, body, .home {
 
 .no-svg .break-color {
 	background: url('/img/png/break-color.png') no-repeat center center fixed; 
+}
+
+@mixin break-screens {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+@mixin break-screens--inner {
+	flex: 0;
+	width: 80%;
+	padding: 3em 0;
 }
 
 // Home Screen Styling
