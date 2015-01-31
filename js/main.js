@@ -289,16 +289,6 @@ $('#icon-info').click(function(){
 // Entering Main App Section (starting the day)
 // -----------------------------------------------------
 
-$('#return-to-home').on('click', function(){
-    $('#info, #return-to-home, #end-break, #break').fadeOut(1);
-    $('.good-day h3, .good-day p, #startDay').fadeIn(1000);
-    $('#icon').show();
-    $('#clock').removeClass('break');
-    defaultTimer.stop();
-    breakTimer.stop();
-});
-
-
 var timerAudio = new Audio("snd/break.wav");
 var breakAudio = new Audio("snd/end-break.wav");
 
@@ -323,11 +313,11 @@ $('#laterBreak').on('click', function(){
 });
 // Actual function that begins a one hour timer // needs to be updated to include 'break' screen
 function timeout_init() {
-    if (true){// checkCookies('work') || checkCookies('lunch')  add in if stmt
+    if (true){ // checkCookies('work') || checkCookies('lunch')  add in if stmt
         defaultTimer.start(ms_defaultTimer); // start countdown
         $('#clock').removeClass('break');
         $('.good-day h3, .good-day p, #startDay, #end-break').fadeOut(100);
-        $('#info, #return-to-home').fadeIn(1000);
+        $('#info, #return-to-home, #icon').fadeIn(1000);
         $('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
     }else{
         // TODO do something if user wants to over ride for timer outside of work.
@@ -339,8 +329,9 @@ function timeout_init() {
 // Break screen
 // -----------------------------------------------------
 
+// You deserve a break!
 function timeout_done(){
-    $('#icon').hide();
+    $('#icon, #return-to-home').hide();
     $('#break').fadeToggle(500);
     $('#clock').delay(2000).addClass('break');
     defaultTimer.stop();
@@ -355,9 +346,10 @@ var breakTimer = new Tock({
     complete: breakTime_done
 });
 
+// Yes Please!
 $('#startBreak').on('click', breakTimeout_init);
 function breakTimeout_init() {
-    $('#icon').show();
+    $('#icon, #return-to-home').show();
     breakTimer.start(ms_breakTimer); // start countdown
     $('#break').fadeToggle(500);
     $('#clock').addClass('break');
@@ -368,13 +360,49 @@ function breakTimeout_init() {
 // Return // Ending Break
 // -----------------------------------------------------
 
+// Feeling refreshed?
 function breakTime_done(){
-    $('#icon').hide();
+    $('#icon, #return-to-home').hide();
     $('#end-break').fadeToggle(500);
     $('#clock').delay(2000).removeClass('break');
     breakTimer.stop();
     breakAudio.play();
 }
+
+// -----------------------------------------------------
+// Return Home
+// -----------------------------------------------------
+
+// Heading out early?
+ $('#return-to-home').click(function() {
+    $('#icon, #return-to-home').hide();
+    $('#return-home').fadeIn();
+ });
+
+ // Still here
+ $('#still-here').click(function() {
+    $('#icon, #return-to-home').show();
+    $('#return-home').fadeOut();
+ });
+
+// Closing up shop
+$('#leaving-now').click(function() {
+    $('#endBreak, #break, #info, #return-to-home, #return-home').fadeOut();
+    $('.good-day h3, .good-day p, #startDay, #icon').fadeIn(1000);
+    $('#clock').removeClass('break');
+    defaultTimer.stop();
+    breakTimer.stop();
+});
+
+//  $('#return-to-home').on('click', function(){
+//     $('#info, #return-to-home, #end-break, #break').fadeOut(1);
+//     $('.good-day h3, .good-day p, #startDay').fadeIn(1000);
+//     $('#icon').show();
+//     $('#clock').removeClass('break');
+//     defaultTimer.stop();
+//     breakTimer.stop();
+// });
+
 // -----------------------------------------------------
 // Cookie functions to test
 // -----------------------------------------------------

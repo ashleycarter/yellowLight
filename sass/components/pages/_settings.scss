@@ -3,10 +3,8 @@
 // =========================================
 
 #settings {
-	display: none;
+	@include break-screens;
 	position: relative;
-	width: 100%;
-	height: 100%;
 	a {
 		text-decoration: none;
 		&:nth-child(2) { background-color: $yellow; }
