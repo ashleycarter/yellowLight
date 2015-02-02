@@ -4,16 +4,21 @@ Notes
 
 Design
 
-- Add 'X' in header
-- Add screen - ending time function ('Heading out early? screen')
+- (DONE) Add 'X' in header
+- (DONE Add screen - ending time function ('Heading out early? screen')
 
 ---------
 
 JS
 
 - Change 'you should take a break in...' from exact time to 'about x hr/min' (in 15min intervals) --> example: 'You should take a break in about 30 minutes'
-- Add  functionality to 'X' in header --> goes to 'Heading out early' screen if the user wants to stop the app from telling them to take breaks (will then default to home page with option of 'starting the day')
-- re-factor main-2.js to look cleaner easier to read
+	- Maybe instead, we could just have an exact counter (you should take a break in 36 minutes) 
+
+- (DONE) Add  functionality to 'X' in header --> goes to 'Heading out early' screen if the user wants to stop the app from telling them to take breaks (will then default to home page with option of 'starting the day')
+
+- (IN PROGRESS) re-factor main-2.js to look cleaner easier to read
+	- removed main-2.js and added main.js - still hasn't really been cleaned up
+
 - (DONE) see whats in main.js and replace with main-2.js
 
 - (DONE) Cycling through app is not yet perfect :(

@@ -292,8 +292,11 @@ $('#icon-info').click(function(){
 var timerAudio = new Audio("snd/break.wav");
 var breakAudio = new Audio("snd/end-break.wav");
 
-var ms_defaultTimer = 20000; // needs to be in ms
-var minutes_defaultTimer = Math.floor((ms_defaultTimer / 1000) / 60);
+// var ms_defaultTimer = 3600000; // needs to be in ms // Actual one hour counter
+var ms_defaultTimer = 10000; // needs to be in ms
+var minutes = (ms_defaultTimer / 60) / 1000;
+var minutes_defaultTimer = minutes;
+
 var defaultTimer = new Tock({
     countdown: true,
     interval: 0,
@@ -338,6 +341,7 @@ function timeout_done(){
     timerAudio.play();
 }
 
+// Break timer - will eventually need to be 10 minutes long
 var ms_breakTimer = 10000; // needs to be in ms
 var minutes_breakTimer = Math.floor((ms_breakTimer / 1000) / 60);
 var breakTimer = new Tock({
@@ -346,7 +350,7 @@ var breakTimer = new Tock({
     complete: breakTime_done
 });
 
-// Yes Please!
+// Yes Please! button
 $('#startBreak').on('click', breakTimeout_init);
 function breakTimeout_init() {
     $('#icon, #return-to-home').show();
@@ -394,19 +398,10 @@ $('#leaving-now').click(function() {
     breakTimer.stop();
 });
 
-//  $('#return-to-home').on('click', function(){
-//     $('#info, #return-to-home, #end-break, #break').fadeOut(1);
-//     $('.good-day h3, .good-day p, #startDay').fadeIn(1000);
-//     $('#icon').show();
-//     $('#clock').removeClass('break');
-//     defaultTimer.stop();
-//     breakTimer.stop();
-// });
-
 // -----------------------------------------------------
 // Cookie functions to test
 // -----------------------------------------------------
-//
+
 // Check cookies to see if timer is trying to start outside of work hours or during lunch.
 // params bool, bool
 function checkCookies(timeOfDay){
