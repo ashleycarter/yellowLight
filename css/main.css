@@ -329,7 +329,8 @@ html, body, .home {
   width: 100%;
   height: 100%;
   text-align: center;
-  position: relative; }
+  position: relative;
+  text-align: left; }
   #settings a {
     text-decoration: none; }
     #settings a:nth-child(2) {
@@ -365,6 +366,12 @@ html, body, .home {
   padding-right: 1.5em;
   margin-top: -10px;
   z-index: 999; }
+
+#sound-settings.on:after {
+  content: "On"; }
+
+#sound-settings.off:after {
+  content: "Off"; }
 
 .break {
   background: url("/img/break.svg") no-repeat center center fixed;
