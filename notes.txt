@@ -4,29 +4,20 @@ Notes
 
 Design
 
-- (DONE) Add 'X' in header
-- (DONE Add screen - ending time function ('Heading out early? screen')
+- Yellow Light Landing Page
+- (?) Adding End Work Day Screen
 
 ---------
 
 JS
 
-- Change 'you should take a break in...' from exact time to 'about x hr/min' (in 15min intervals) --> example: 'You should take a break in about 30 minutes'
-	- Maybe instead, we could just have an exact counter (you should take a break in 36 minutes) 
-
-- (DONE) Add  functionality to 'X' in header --> goes to 'Heading out early' screen if the user wants to stop the app from telling them to take breaks (will then default to home page with option of 'starting the day')
+- Task Runner
 
 - (IN PROGRESS) re-factor main-2.js to look cleaner easier to read
 	- removed main-2.js and added main.js - still hasn't really been cleaned up
 
-- (DONE) see whats in main.js and replace with main-2.js
+- Toggle Sound On and Off
 
-- (DONE) Cycling through app is not yet perfect :(
-	- Clicking 'Yes Please!' button on Break screen
-		- '.info p' fades in and out every second
-	- Clicking 'Let's Do This!' buttons on End Break screen
-		- doesn't begin the cycle again
-			- This button should act just like the Start Day button that begins another hour long timer.
-		- Clock is faded out for some reason
+- The primary function of this app sholud not interfere with user inputed time ie Work Day and Lunch Time
 
 ===================
