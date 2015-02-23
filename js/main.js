@@ -312,7 +312,7 @@ $('#laterBreak').on('click', function(){
     $('#clock').removeClass('break');
     $('#break, #return-to-home').fadeToggle(500);
     $('#info, #return-to-home').fadeIn(1000);
-    $('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+    $('#info p').html("You should take a break in " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
 });
 // Actual function that begins a one hour timer // needs to be updated to include 'break' screen
 function timeout_init() {
@@ -321,7 +321,7 @@ function timeout_init() {
         $('#clock').removeClass('break');
         $('.good-day h3, .good-day p, #startDay, #end-break').fadeOut(100);
         $('#info, #return-to-home, #icon').fadeIn(1000);
-        $('#info p').html("You should take a break in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+        $('#info p').html("You should take a break in " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
     }else{
         // TODO do something if user wants to over ride for timer outside of work.
         alert("You\'re off work. Go to sleep!");
