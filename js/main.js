@@ -290,45 +290,50 @@ $('#icon-info').click(function(){
 // -----------------------------------------------------
 
 // var ms_defaultTimer = 5.4e6; // ninety minute timer in ms
-var ms_defaultTimer = 10000; // needs to be in ms
-var minutes = (ms_defaultTimer / 60) / 1000;
-var minutes_defaultTimer = minutes;
+var ms_defaultTimer = 6e4; // needs to be in ms
 
 var defaultTimer = new Tock({
     countdown: true,
-    interval: 0,
+    time: ms_defaultTimer,
+    interval: 6e4, // one minute
+    callback: defaultCountdown,
     complete: timeout_done
 });
 
-var shortTimer = 3000;
-
 $('#startDay').on('click', timeout_init);
 $('#returnDay').on('click', timeout_init);
-$('#laterBreak').on('click', function(){
-    defaultTimer.start(ms_defaultTimer); // start countdown
-    $('#clock').removeClass('break');
-    $('#break, #return-to-home').fadeToggle(500);
-    $('#info, #return-to-home').fadeIn(1000);
-    $('#info p').html("You should take a break in " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
-});
-// Actual function that begins a one hour timer // needs to be updated to include 'break' screen
+
+function defaultCountdown() {
+    var minutes_til = Math.round(defaultTimer.timeToMS(defaultTimer.lap()) / 60) / 1000;
+    $('.arrow_box span').html(minutes_til);
+}
+
 function timeout_init() {
     if (true){ // checkCookies('work') || checkCookies('lunch')  add in if stmt
-        defaultTimer.start(ms_defaultTimer); // start countdown
+        defaultTimer.start(ms_defaultTimer, 'MM:SS'); // start countdown
         $('#clock').removeClass('break');
         $('.good-day h3, .good-day p, #startDay, #end-break').fadeOut(100);
         $('#info, #return-to-home, #icon').fadeIn(1000);
-        $('#info p').html("You should take a break in " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
-    }else{
+        $('#info p').fadeIn(1000).delay(5000).fadeOut(1000);
+    } else {
         // TODO do something if user wants to over ride for timer outside of work.
         alert("You\'re off work. Go to sleep!");
     }
 }
 
+$('#laterBreak').on('click', function(){
+    defaultTimer.start(ms_defaultTimer); // start countdown
+    $('#clock').removeClass('break');
+    $('#break, #return-to-home').fadeToggle(500);
+    $('#info, #return-to-home').fadeIn(1000);
+    $('#info p').html("You should take a break in " + defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+});
+
 // -----------------------------------------------------
 // Break screen
 // -----------------------------------------------------
 
+// Sounds
 var timerAudio = new Audio("snd/break.wav");
 var breakAudio = new Audio("snd/end-break.wav");
 
@@ -349,22 +354,30 @@ function timeout_done(){
 }
 
 // var ms_breakTimer = 9e5; // 15 minute timer in ms
-var ms_breakTimer = 10000; // needs to be in ms
-var minutes_breakTimer = (ms_breakTimer / 1000) / 60;
+var ms_breakTimer = 6e4; // needs to be in ms
+
 var breakTimer = new Tock({
     countdown: true,
-    interval: 0,
+    time: ms_breakTimer,
+    interval: 6e4, // one minute
+    callback: breakCountdown,
     complete: breakTime_done
 });
 
 // Yes Please! button
 $('#startBreak').on('click', breakTimeout_init);
+
+function breakCountdown() {
+    var minutes_til_end = Math.round(breakTimer.timeToMS(breakTimer.lap()) / 60) / 1000;
+    $('.arrow_box span').html(minutes_til_end);
+}
+
 function breakTimeout_init() {
     $('#icon, #return-to-home').show();
     breakTimer.start(ms_breakTimer); // start countdown
     $('#break').fadeToggle(500);
     $('#clock').addClass('break');
-    $('#info p').html("Your break is ending in " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+    $('#info p').fadeIn(1000).delay(5000).fadeOut(1000);
 }
 
 // -----------------------------------------------------
