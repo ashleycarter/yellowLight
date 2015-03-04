@@ -5,6 +5,8 @@ Notes
 Design
 
 - Yellow Light Landing Page
+	- coming soon page up
+	
 - (?) Adding End Work Day Screen
 
 ---------
@@ -16,8 +18,7 @@ JS
 - (IN PROGRESS) re-factor main-2.js to look cleaner easier to read
 	- removed main-2.js and added main.js - still hasn't really been cleaned up
 
-- Toggle Sound On and Off
-
 - The primary function of this app sholud not interfere with user inputed time ie Work Day and Lunch Time
+	- we could remove this for the time being...
 
 ===================
