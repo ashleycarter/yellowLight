@@ -289,10 +289,7 @@ $('#icon-info').click(function(){
 // Entering Main App Section (starting the day)
 // -----------------------------------------------------
 
-var timerAudio = new Audio("snd/break.wav");
-var breakAudio = new Audio("snd/end-break.wav");
-
-// var ms_defaultTimer = 3600000; // needs to be in ms // Actual one hour counter
+// var ms_defaultTimer = 5.4e6; // ninety minute timer in ms
 var ms_defaultTimer = 10000; // needs to be in ms
 var minutes = (ms_defaultTimer / 60) / 1000;
 var minutes_defaultTimer = minutes;
@@ -332,18 +329,28 @@ function timeout_init() {
 // Break screen
 // -----------------------------------------------------
 
+var timerAudio = new Audio("snd/break.wav");
+var breakAudio = new Audio("snd/end-break.wav");
+
+$('#sounds').click(function() {
+    $('#sound-settings').toggleClass('on off');
+});
+
 // You deserve a break!
 function timeout_done(){
     $('#icon, #return-to-home').hide();
     $('#break').fadeToggle(500);
     $('#clock').delay(2000).addClass('break');
     defaultTimer.stop();
-    timerAudio.play();
+
+    if($('#sound-settings').hasClass('on')) {
+        timerAudio.play();
+    } 
 }
 
-// Break timer - will eventually need to be 10 minutes long
+// var ms_breakTimer = 9e5; // 15 minute timer in ms
 var ms_breakTimer = 10000; // needs to be in ms
-var minutes_breakTimer = Math.floor((ms_breakTimer / 1000) / 60);
+var minutes_breakTimer = (ms_breakTimer / 1000) / 60;
 var breakTimer = new Tock({
     countdown: true,
     interval: 0,
@@ -357,7 +364,7 @@ function breakTimeout_init() {
     breakTimer.start(ms_breakTimer); // start countdown
     $('#break').fadeToggle(500);
     $('#clock').addClass('break');
-    $('#info p').html("Your break is ending in about " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
+    $('#info p').html("Your break is ending in " + minutes_defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
 }
 
 // -----------------------------------------------------
@@ -370,7 +377,10 @@ function breakTime_done(){
     $('#end-break').fadeToggle(500);
     $('#clock').delay(2000).removeClass('break');
     breakTimer.stop();
-    breakAudio.play();
+
+    if($('#sound-settings').hasClass('on')) {
+        breakAudio.play();
+    } 
 }
 
 // -----------------------------------------------------
