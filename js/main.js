@@ -10,9 +10,72 @@ var update = function () {
     currentTime.html(time.format('h:mm')).append('<span id="ampm">' + time.format('a') + '</span>');;
 };
 
-currentTime = $('#time');
+currentTime = $('#current-time');
 update();
 setInterval(update, 1000);
+
+
+// -----------------
+// Analog Clock Function
+// -----------------
+
+$('#clock-display').click(function() {
+    $('#clock-display-settings').toggleClass('digital analog');
+
+    if($('#clock-display-settings').hasClass('analog')) {
+        $('.analog-clock').show();
+        $('#current-time').hide();
+    } else {
+        $('.analog-clock').hide();
+        $('#current-time').show();
+    }
+});
+
+    // if($('#sound-settings').hasClass('on')) {
+    //     timerAudio.play();
+    // } 
+
+$(function(){
+  analogClock();
+});
+
+function analogClock() {
+
+  // Get time from moment.js with specified format
+  var now = moment().format("hhmmssdA");
+  
+  // Move the clock hands
+  rotateHands(now[4] + now[5], now[2] + now[3], now[0] + now[1]);
+}
+
+function rotateHands(sec,min,hour) {
+  var degSec = 360/60*sec;
+  var degMin = 360/60*min;
+  var degHour = 360/12*hour;
+
+  var sHand = $('.seconds-container');
+  sHand.css({
+        "-webkit-transform": "rotate(" + degSec + "deg)",
+        "-moz-transform": "rotate(" + degSec + "deg)",
+        "transform": "rotate(" + degSec + "deg)" 
+    });
+
+  var mHand = $('.minutes-container');
+  mHand.css({
+        "-webkit-transform": "rotate(" + degMin + "deg)",
+        "-moz-transform": "rotate(" + degMin + "deg)",
+        "transform": "rotate(" + degMin + "deg)"
+    });
+
+  var hHand = $('.hours-container');
+  hHand.css({
+        "-webkit-transform": "rotate(" + degHour + "deg)",
+        "-moz-transform": "rotate(" + degHour + "deg)",
+        "transform": "rotate(" + degHour + "deg)" 
+    });
+}
+
+setInterval(analogClock, 1000);
 
 
 // -----------------

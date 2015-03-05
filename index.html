@@ -26,6 +26,7 @@
 		<section class="break-color" id="settings">
 			<section class="fill-height">
 				<div class="app-header"><h4>Settings</h4></div>
+				<a id="clock-display" href="#clock-display"><div><p class="h5">Clock Display: <span id="clock-display-settings" class="digital"></span><i class="icon-arrow-right"></i><p></div></a>
 				<a id="sounds" href="#sounds"><div><p class="h5">Sounds: <span id="sound-settings" class="on"></span><i class="icon-arrow-right"></i><p></div></a>
 				<a href="#about" id="aboutlink"><div><p class="h5">About Yellow Light<i class="icon-arrow-right"></i><p></div></a>
 			</section>
@@ -54,7 +55,22 @@
 		<main class="home" id="main-screen home">
 			<div class="fill-height">
 				<div class="good-day">
-					<h1 class="h1" id="time"></h1>
+					<h1 class="h1" id="current-time"></h1>
+
+					<!-- Analog Clock Section -->
+					<section class="analog-clock">
+						<div class="hours-container">
+							<div class="hours"></div>
+						</div>
+						<div class="minutes-container">
+							<div class="minutes"></div>
+						</div>
+						<div class="seconds-container">
+							<div class="seconds"></div>
+						</div>
+					</section>
+					<!-- Ending Analog Clock Section -->
+		
 					<h3></h3>
 					<p class="greeting"></p>
 					<a href="#" id="startDay" class="button">Start Your Day</a>

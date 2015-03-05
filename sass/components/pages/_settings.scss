@@ -44,6 +44,14 @@
 	z-index: 999;
 }
 
+#clock-display-settings.digital:after {
+	content: "Digital";
+}
+
+#clock-display-settings.analog:after {
+	content: "Analog";
+}
+
 #sound-settings.on:after {
 	content: "On";
 }

@@ -1,0 +1,111 @@
+// =========================================
+// Clock
+// =========================================
+
+@include keyframes(rotate) {
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
+
+.analog-clock {
+	display: none;
+
+	background: url('../img/analog-clock.svg') no-repeat center;
+	width: 85%;
+	height: 15em;
+	margin: 0 auto;
+	position: relative;
+
+	margin-top: -2em;
+	margin-bottom: 2em;
+
+	&:after {
+		background-color: white;
+		border-radius: 50%;
+		content: "";
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 12px;
+		height: 12px;
+		z-index: 10;
+
+		@include transform(translate(-50%, -50%));
+	}
+}
+
+.hours-container, .minutes-container, .seconds-container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.hours-container {
+
+}
+
+.minutes-container {
+ 	@include transition(transform 0.3s cubic-bezier(0.4,2,0.55,0.65));
+}
+
+.seconds-container {
+  	@include transition(transform 0.3s cubic-bezier(0.4,2,0.55,0.65));
+}
+
+.hours, .minutes, .seconds {
+	background: white;
+	position: absolute;
+
+	@include transform-origin(50%, 100%);
+}
+
+.hours {
+	width: 4px;
+	height: 15%;
+	top: 35%;
+	left: 49.75%;
+}
+
+.minutes {
+	width: 3px;
+	height: 25%;
+	top: 25%;
+	left: 49.75%;
+}
+
+.seconds {
+	width: 2px;
+	height: 35%;
+	top: 20%;
+	left: 49.95%;
+
+	z-index: 8;
+	@include transform-origin(50%, 80%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
