@@ -3,7 +3,7 @@
 // -----------------------------------------------------
 
 var currentTime = null,
-time = null;
+    time = null;
 
 var update = function () {
     time = moment(new Date());
