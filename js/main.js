@@ -1,6 +1,39 @@
+// -----------------------------------------------------
+// Display Current Time
+// -----------------------------------------------------
+
+var currentTime = null,
+time = null;
+
+var update = function () {
+    time = moment(new Date());
+    currentTime.html(time.format('h:mm')).append('<span id="ampm">' + time.format('a') + '</span>');;
+};
+
+currentTime = $('#time');
+update();
+setInterval(update, 1000);
+
+
 // -----------------
 // SVG images
 // -----------------
+
+// PNG Fallbacks
+if (!Modernizr.svg) {
+    // SVG Inline Images
+    var imgs = document.getElementsByTagName('img');
+    var svgExtension = /.*\.svg$/
+    var l = imgs.length;
+    for(var i = 0; i < l; i++) {
+        if(imgs[i].src.match(svgExtension)) {
+            imgs[i].src = imgs[i].src.slice(0, -3) + 'png';
+            console.log(imgs[i].src);
+        }
+    }
+    // SVG Background Images
+    $('#clock').addClass('no-svg');
+}
 
 // Replace all SVG images with inline SVG
 function svgReplace() {
@@ -33,29 +66,6 @@ $(function() {
     svgReplace();
 });
 
-// PNG Fallbacks
-if (Modernizr.svg) {
-    $('#clock').addClass('has-svg');
-} else {
-    $('#clock').addClass('no-svg');
-}
-
-// -----------------------------------------------------
-// Display Current Time
-// -----------------------------------------------------
-
-var currentTime = null,
-time = null;
-
-var update = function () {
-    time = moment(new Date());
-    currentTime.html(time.format('h:mm a'));
-};
-
-currentTime = $('#time');
-update();
-setInterval(update, 1000);
-
 
 // -----------------------------------------------------
 // Open App Screen
@@ -69,15 +79,15 @@ function setGreeting(){
     if (refH>=5 && refH<12){
         $('#clock').addClass('morning');
         $('.good-day h3').html('Good Morning!');
-        $('.good-day .greeting').html('Grab a cup of coffee and start your day off right!');
+        $('.good-day .greeting').html('Let\'s start your day off right!');
     } else if (refH>=12 && refH<18){
         $('#clock').addClass('afternoon');
         $('.good-day h3').html('Good Afternoon!');
-        $('.good-day .greeting').html('Grab a bite to eat and don\'t slow down this awesome day!');
+        $('.good-day .greeting').html('Roll up your sleeves and don\'t slow this awesome day down!');
     } else if (refH>=18 || refH<5){
         $('#clock').addClass('evening');
         $('.good-day h3').html('Good Evening!');
-        $('.good-day .greeting').html('Time to relax!');
+        $('.good-day .greeting').html('Burning the midnight oil? Make sure you don\'t burn yourself out!');
     }
     var greetTimeout = setTimeout(setGreeting, 10000);
 }
@@ -94,6 +104,14 @@ $('#info').hide(); // CSS display none on page load
 $('#icon').on('click',function(){
     $('.home, #settings').fadeToggle(200);
     $('#icon i').toggleClass('icon-settings icon-close');
+
+    if($('#icon i').hasClass('icon-close')) {
+        $('#return-to-home').hide();
+    }
+
+    if($('#icon i').hasClass('icon-settings')) {
+        $('#return-to-home').show();
+    }
 });
 
 $('#worklink').on('click',function(){
@@ -315,6 +333,7 @@ function timeout_init() {
         $('.good-day h3, .good-day p, #startDay, #end-break').fadeOut(100);
         $('#info, #return-to-home, #icon').fadeIn(1000);
         $('#info p').fadeIn(1000).delay(5000).fadeOut(1000);
+
     } else {
         // TODO do something if user wants to over ride for timer outside of work.
         alert("You\'re off work. Go to sleep!");
@@ -343,7 +362,7 @@ $('#sounds').click(function() {
 
 // You deserve a break!
 function timeout_done(){
-    $('#icon, #return-to-home').hide();
+    $('#icon, #return-to-home, #settings').hide();
     $('#break').fadeToggle(500);
     $('#clock').delay(2000).addClass('break');
     defaultTimer.stop();
@@ -373,7 +392,16 @@ function breakCountdown() {
 }
 
 function breakTimeout_init() {
-    $('#icon, #return-to-home').show();
+    $('#icon, #return-to-home, #icon-settings').show();
+
+    if($('#icon i').hasClass('icon-close')) {
+        $('#return-to-home').hide();
+    }
+
+    if($('#icon i').hasClass('icon-settings')) {
+        $('#return-to-home').show();
+    }
+
     breakTimer.start(ms_breakTimer); // start countdown
     $('#break').fadeToggle(500);
     $('#clock').addClass('break');

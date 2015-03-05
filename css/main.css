@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -73,8 +73,8 @@ h1, h2, h3, h4, h5, h6,
 
 body {
   font-size: 1em;
-  font-family: "Proxima-Nova", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 100; }
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100; }
@@ -306,7 +306,13 @@ html, body, .home {
     padding: 3em 0; }
 
 #time {
-  margin-bottom: 0.45em; }
+  margin-bottom: 0.25em;
+  font-weight: 100;
+  font-size: 6.0772em; }
+  #time #ampm {
+    font-size: 0.375em;
+    text-transform: lowercase;
+    margin-left: 3px; }
 
 .good-day {
   padding-top: 2.5em; }
