@@ -172,9 +172,13 @@ $('#icon').on('click',function(){
         $('#return-to-home').hide();
     }
 
-    if($('#icon i').hasClass('icon-settings')) {
-        $('#return-to-home').show();
+    var a = $('#clock');
+    var b = $('#icon i');
+
+    if( (a.hasClass('timer-started')) && (b.hasClass('icon-settings')) ) {
+        $('#return-to-home').show()
     }
+    
 });
 
 $('#aboutlink').on('click', function(){
@@ -237,7 +241,7 @@ function defaultCountdown() {
 function timeout_init() {
     if (true) { 
         defaultTimer.start(ms_defaultTimer, 'MM:SS'); // start countdown
-        $('#clock').removeClass('break');
+        $('#clock').removeClass('break').addClass('timer-started');
         $('.good-day h3, .good-day p, #startDay, #end-break').fadeOut(100);
         $('#info, #return-to-home, #icon').fadeIn(1000);
         $('#info p').fadeIn(1000).delay(5000).fadeOut(1000);
@@ -250,7 +254,7 @@ function timeout_init() {
 
 $('#laterBreak').on('click', function(){
     defaultTimer.start(ms_defaultTimer); // start countdown
-    $('#clock').removeClass('break');
+    $('#clock').removeClass('break').addClass('timer-started');
     $('#break, #return-to-home').fadeToggle(500);
     $('#info, #return-to-home').fadeIn(1000);
     $('#info p').html("You should take a break in " + defaultTimer + " minutes.").fadeIn(1000).delay(5000).fadeOut(1000);
@@ -272,7 +276,7 @@ $('#sounds').click(function() {
 function timeout_done(){
     $('#icon, #return-to-home, #settings').hide();
     $('#break').fadeToggle(500);
-    $('#clock').delay(2000).addClass('break');
+    $('#clock').delay(2000).addClass('break').removeClass('timer-started');
     defaultTimer.stop();
 
     if($('#sound-settings').hasClass('on')) {

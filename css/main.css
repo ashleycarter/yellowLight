@@ -440,6 +440,8 @@ html, body, .home {
   height: 100px;
   background-color: #ffca09;
   text-align: center; }
+  .app-header h4 {
+    font-weight: 300; }
 
 .icon-bar--inner {
   width: 100%;
