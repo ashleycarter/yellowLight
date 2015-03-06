@@ -7,7 +7,7 @@ var currentTime = null,
 
 var update = function () {
     time = moment(new Date());
-    currentTime.html(time.format('h:mm')).append('<span id="ampm">' + time.format('a') + '</span>');;
+    currentTime.html(time.format('h:mm')).append('<span id="ampm">' + time.format('a') + '</span>');
 };
 
 currentTime = $('#current-time');
@@ -42,8 +42,8 @@ $(function(){
 function analogClock() {
 
   // Get time from moment.js with specified format
-  var now = moment().format("hhmmssdA");
-  
+  var now = moment().format("hhmmssA");
+
   // Move the clock hands
   rotateHands(now[4] + now[5], now[2] + now[3], now[0] + now[1]);
 }

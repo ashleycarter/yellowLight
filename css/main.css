@@ -263,12 +263,6 @@ div.time-selection {
   -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 2, 0.55, 0.65);
   transition: transform 0.3s cubic-bezier(0.4, 2, 0.55, 0.65); }
 
-.seconds-container {
-  -moz-transition: -moz-transform 0.3s cubic-bezier(0.4, 2, 0.55, 0.65);
-  -o-transition: -o-transform 0.3s cubic-bezier(0.4, 2, 0.55, 0.65);
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 2, 0.55, 0.65);
-  transition: transform 0.3s cubic-bezier(0.4, 2, 0.55, 0.65); }
-
 .hours, .minutes, .seconds {
   background: white;
   position: absolute;
