@@ -178,7 +178,7 @@ $('#icon').on('click',function(){
     if( (a.hasClass('timer-started')) && (b.hasClass('icon-settings')) ) {
         $('#return-to-home').show()
     }
-    
+
 });
 
 $('#aboutlink').on('click', function(){
@@ -235,7 +235,13 @@ $('#returnDay').on('click', timeout_init);
 
 function defaultCountdown() {
     var minutes_til = Math.round(defaultTimer.timeToMS(defaultTimer.lap()) / 60) / 1000;
-    $('.arrow_box span').html(minutes_til);
+    $('.countdown').html(minutes_til);
+
+    if ( minutes_til > 1 ) {
+        $('.minute').html('minutes.');
+    } else {
+        $('.minute').html('minute.');
+    }
 }
 
 function timeout_init() {
